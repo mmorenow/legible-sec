@@ -1,0 +1,3 @@
+docling==2.110.0
+pypdfium2
+pandas

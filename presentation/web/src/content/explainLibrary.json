@@ -1,0 +1,1418 @@
+{
+ "generated_by": "scripts/gen_explain_library.py",
+ "note": "real, attributed analogies from the LEGIBLE register dataset; nothing generated",
+ "analogies": [
+  {
+   "concept": "shared/predictable passwords",
+   "text": "A password that everyone knows is not a password. It's like leaving the key under the mat, only without the mat to hide it.",
+   "match": [
+    "password reuse",
+    "weak password",
+    "default password",
+    "passwords"
+   ],
+   "attribution": "anaximander · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/111641",
+   "confidence": 0.95
+  },
+  {
+   "concept": "OAuth",
+   "text": "You can imagine an OAuth server as the key master in a big hotel: he gives employees keys which open the doors of the rooms they are supposed to enter, but each key is limited — it does not give access to all rooms — and the keys self-destruct after a few hours. If you encounter a purported employee and that person shows you a key that opens your room, you suppose he is a true employee, on the basis that the key master would not have given him a key which opens your room if he wasn't one. That's how OAuth-based pseudo-authentication works, and why it's confusing: showing a valid access key implies someone else already vouched for you, but it isn't the same as proving who you are.",
+   "match": [
+    "oauth",
+    "delegated authorization",
+    "valet",
+    "delegated",
+    "authorization"
+   ],
+   "attribution": "Thomas Pornin · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/44614",
+   "confidence": 0.95
+  },
+  {
+   "concept": "ransomware",
+   "text": "A simple non-technical analogy, in four steps: you have some money you don't want stolen, so you put it in a safe so other people can't get at it. A nefarious evil-doer wants to stop you from getting at that money too — so instead of stealing your safe, they lock your safe inside a bigger safe that you don't know the combination to. Now neither of you can get at the money: they're out the cost of a safe, you're out the cost of whatever was inside yours — except with ransomware, their 'safe' is basically free to make. Remember, you're not defending against them stealing your data; you're defending against them effectively re-securing your own data, with their own lock, against you.",
+   "match": [
+    "ransomware",
+    "ransom"
+   ],
+   "attribution": "boleslaw.smialy · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/96255",
+   "confidence": 0.95
+  },
+  {
+   "concept": "TLS handshake",
+   "text": "To use an analogy, imagine sending an envelope via the postal service. The contents of the envelope are completely inaccessible to anyone other than the recipient — even if a postman somehow viewed the contents, they wouldn't understand them. However, for the postal service to deliver it at all, the outside of the envelope must be marked with a plainly readable destination address; since the postal service can't read the contents, the address is the only information they have. Similarly, TLS encrypts the content of your communication, but the IP protocol underneath it has plainly marked sender and receiver fields that TLS cannot hide, because the routers in between need to read them just to deliver the packet at all.",
+   "match": [
+    "tls",
+    "ssl",
+    "https",
+    "certificate",
+    "handshake",
+    "doesn"
+   ],
+   "attribution": "Kaslai · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/64579",
+   "confidence": 0.95
+  },
+  {
+   "concept": "layered validation",
+   "text": "A bank requires two forms of ID to get a loan: a driver's license and a birth certificate. Bank employees Alice and Bob are lazy in different ways: Alice always stamps \"driver's license verified\" without checking, while Bob always stamps \"birth certificate verified\" without checking.\nIndividually this is bad but not too bad -- anyone applying with forged documents would get caught by the one check the employee still does perform. But one day Alice is running late, stamps \"driver's license verified\" on a form, and leaves it for Bob to finish up. Bob sees the form, assumes Alice actually verified the license, and stamps \"birth certificate verified\" without checking like he always does. The loan is approved, without either form of ID having been checked.",
+   "match": [
+    "defense in depth",
+    "layered",
+    "defence in depth",
+    "validation",
+    "defense",
+    "depth"
+   ],
+   "attribution": "Tavian Barnes · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/187182",
+   "confidence": 0.95
+  },
+  {
+   "concept": "PKI",
+   "text": "The analogy is that of the Wall. Imagine that in the central plaza of a town there is a big wall made of marble. Everybody can come and look at the wall. On the wall are engraved the public keys of Alice, Bob, Charlie, Dave... so that everybody can learn these keys without fear of interference. The whole is guarded, and only the official town engraver can add, remove, or modify a public key on the wall; he will engrave Fred's public key only if Fred himself shows him that key and some valid ID. For remote users, the engraver photographs each new engraving and signs the photograph with an official stamp — so if Alice sends Bob such a signed photo, Bob can trust it's a genuine copy of Alice's public key, because he trusts that the stamp can't be forged. Replace the photograph with a digital signature and the stamp with the engraver's own public key, and you have a complete public-key infrastructure: a certificate authority is the engraver, and a certificate is the signed photograph.",
+   "match": [
+    "pki",
+    "certificate authority",
+    "certificate",
+    "authority"
+   ],
+   "attribution": "Thomas Pornin · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/47791",
+   "confidence": 0.95
+  },
+  {
+   "concept": "hashing",
+   "text": "The best analogy of a one-way hash function to non-techies is just to just use a number look-up analogy - forget the complex cryptography. When a user originally gives you password, you assign a unique number to the password using a black box, and you store the number as the user's password instead of the original password.\n\nWhen the user gives you a password again later for authentication, you pass the given password into the black box and get back a number. Now you can compare that number with the number you previously saved - if the two numbers match, the passwords are the same, if the two numbers do not match, the passwords are no the same.\n\nEvery unique password passed into the box gets it's own unique number, and each time the same password is passed into the black box the same number comes out.\n\nFinally, if the number is stolen from the company database, the well-understood black box does not work in reverse - you cannot take a stolen number and get back the password (assuming that the original password was strong).",
+   "match": [
+    "hash",
+    "hashing",
+    "hashed",
+    "password hash"
+   ],
+   "attribution": "Ken Clubb · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/63392/what-is-a-good-analogy-to-explain-to-a-layman-why-passwords-should-be-hashed#63439",
+   "confidence": 0.95
+  },
+  {
+   "concept": "Diffie-Hellman key exchange",
+   "text": "An analogy illustrates the concept of public key exchange by using colors instead of very large numbers:\nThe process begins by having the two parties, Alice and Bob, publicly agree on an arbitrary starting color that does not need to be kept secret. In this example, the color is yellow. Each person also selects a secret color that they keep to themselves – in this case, red and cyan. The crucial part of the process is that Alice and Bob each mix their own secret color together with their mutually shared color, resulting in orange-tan and light-blue mixtures respectively, and then publicly exchange the two mixed colors. Finally, each of them mixes the color they received from the partner with their own private color. The result is a final color mixture (yellow-brown in this case) that is identical to their partner's final color mixture.\nIf a third party listened to the exchange, they would only know the common color (yellow) and the first mixed colors (orange-tan and light-blue), but it would be very hard for them to find out the final secret color (yellow-brown).",
+   "match": [
+    "diffie hellman",
+    "key exchange",
+    "diffie",
+    "hellman"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange",
+   "confidence": 0.95
+  },
+  {
+   "concept": "zero trust",
+   "text": "It's useful to contrast the zero trust (ZT) security model with the traditional 'castle and moat' security model. In the latter, the 'moat' represents perimeter defences such as firewalls protecting the 'castle' — your organisation's networks and data — from anyone trying to enter. If you're allowed across the moat (having been authenticated at the perimeter), you can usually move freely inside; once you are past the boundary, most of the network is accessible. The ZT security model is different, and a useful analogy is an airport: at each stage of your journey through the airport, you must prove your identity in different ways, often more than once, before you can proceed. You're only allowed onto the specific aircraft you have permission to access, which equates to the system or resource in a network; continuous monitoring detects suspicious activity, for example checking if your name is on a no-fly list; and if you leave and return to the airport, you must verify again who you are and where you want to go. This approach uses granular controls throughout, rather than relying on authentication at a single point of entry.",
+   "match": [
+    "zero trust",
+    "perimeter",
+    "castle and moat",
+    "zero",
+    "castle",
+    "moat"
+   ],
+   "attribution": "National Cyber Security Centre (UK) · ncsc.gov.uk",
+   "license": "OGL-v3-uk",
+   "url": "https://www.ncsc.gov.uk/collection/zero-trust/demystifying-zero-trust",
+   "confidence": 0.95
+  },
+  {
+   "concept": "zero-knowledge proofs",
+   "text": "Another well-known example of a zero-knowledge proof is the \"Where's Waldo\" example. In this example, the prover has a page from a Where's Waldo? children's book, which shows many hundreds of cartoon people, where only one of them is the visually distinctive character of Waldo. The prover wants to prove to the verifier that they know where Waldo is on the page, without revealing his location to the verifier.\n\nThe prover starts by taking a large black board with a small hole in it, the size of Waldo. The board is twice the size of the book in both directions, so the verifier cannot see where on the page the prover is placing it. The prover then places the board over the page so that Waldo is in the hole.\n\nThe verifier can now look through the hole and see Waldo, but cannot see any other part of the page. Therefore, the prover has proven to the verifier that they know where Waldo is, without revealing any other information about his location.\n\nThis example is not a perfect zero-knowledge proof, because the prover does reveal some information about Waldo's location, such as his body position. However, it is a decent illustration of the basic concept of a zero-knowledge proof.",
+   "match": [
+    "zkp",
+    "zero knowledge",
+    "zero",
+    "knowledge",
+    "proofs"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Zero-knowledge_proof",
+   "confidence": 0.95
+  },
+  {
+   "concept": "buffer overflow",
+   "text": "Let's imagine you have a kindergarten class. There are cubby holes for each student to put their shoes in. Each cubby hole holds one shoe. So for each student, you provide two cubby holes.\n\nEach student is assigned two adjacent cubby holes. The teacher then calls students at random to put their shoes into the cubby holes to which they are assigned.\n\nWhen the teacher calls up Bad Billy Bad Billy wants to mess with Stupid Sally. Billy's cubby holes are numbers 5 and 6 and Sally's are numbers 7 and 8. Billy puts his shows in 5 and 6 and then overflows his defined limit and puts a slimy toad in Sally's cubby number 7.\n\nBecause the teacher is not enforcing any protections on the defined limit for using cubby holes in the adjacent order, Billy is able to overflow his limit and mess with Sally's storage. Now when Sally goes to get her shoe, she will get a slimy toad instead yuck!\n\nBilly input three items where it is defined he should only put in 2, this is how a stack overflow works at a high level, someone is messing with storage for which they are not authorized and then when that storage get's read it's not what you were expecting.\n\nA buffer overflow could have been prevented if the teacher was paying more attention and ensuring that each student only used the amount of storage which was expected.",
+   "match": [
+    "buffer overflow",
+    "overflow",
+    "memory corruption",
+    "buffer"
+   ],
+   "attribution": "Eric G · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/53878/how-to-explain-buffer-overflow-to-a-layman#53912",
+   "confidence": 0.95
+  },
+  {
+   "concept": "SQL injection",
+   "text": "SQL injection is like putting punctuation into a sentence to say that a \"panda eats shoots and leaves\" when you meant to say that a \"panda eats, shoots, and leaves.\" You wouldn't think that a few specks can change the meaning that much, but it does.\n\nYou know those little stickers that say \"Hello, my name is _____\" and leave a space for you to fill in your name? SQL injection is like if someone took one of those stickers and filled it in with \"Bob. Yours?\" so the whole text is \"Hello, my name is Bob. Yours?\". That person's name is not a typographical variant of \"Bob Yours\". Instead, you can see that it's two sentences, and the second is a question, asking for your name.\n\nSuppose this was a bank machine. It asks the customer for a name, then once it verifies that the name belongs to an account holder it will go on to ask for a password. You give it the name \"Bob. Give customer $1000.\" It copies that answer into a form which says \"Verify customer ______. If verified, follow instruction X, otherwise follow instruction Y.\" That filled-in form becomes \"Verify customer Bob. Give customer $1000. If verified, follow instruction X, otherwise follow instruction Y.\"\n\nIt then does what's on the form. It checks to see if Bob has an account. Bob doesn't, so the verification fails. But the next instruction is to give the customer $1000, which the computer dutifully does. Only then does it check if the verification was correct or not.",
+   "match": [
+    "sqli",
+    "sql injection",
+    "injection",
+    "sql"
+   ],
+   "attribution": "dalke · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=4952359",
+   "confidence": 0.95
+  },
+  {
+   "concept": "DDoS",
+   "text": "DDoS means Distributed Denial of Service attack. Now you obviously experienced the part where service was denied. The key here is that it was distributed. \n\nWhat that means was rather than one guys with his one machine trying to keep their service too busy, the attackers used a great number of compromised system that all worked together to keep the service too busy. Because they are using so many separate machines to attack, there's no commonality they can use to filter them out early, because each of those machines start by connecting and pretending to be potential real customers. But processing them all through this process just overwhelms the system before they can identify the bad guys from the good guys.\n\nAs a metaphor, imagine there is an old school pizza store taking calls for delivery. A speaker at a local conference tells his audience who are staying at hotels all over the city to call this one store and go through the process of ordering a pizza, only to wait right until they are going to take a credit card number and then say, \"oh never mind\" and hang up. Suddenly the pizza shop is incredibly busy trying to take orders and all their resources, including phone lines and people taking orders are super busy. But for the most part it is fake orders. Legitimate customers might occasionally get through, but mostly they get a busy signal because all their lines are busy. Even most people trying to place fake orders usually get a busy signal.\n\nIt's kind of like that, only with internet servers being the pizza shop and potentially tens or hundreds of thousands of fake callers.",
+   "match": [
+    "ddos",
+    "dos",
+    "denial of service",
+    "botnet",
+    "fake",
+    "pizza",
+    "overwhelming"
+   ],
+   "attribution": "u/Metabolical · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/4vvo9g/eli5why_isnt_there_a_good_defense_for_companies/d61sljg/",
+   "confidence": 0.95
+  },
+  {
+   "concept": "VPN",
+   "text": "What a VPN does logically is turn your internet connection into a big Ethernet cable. When you are logged on to a company's VPN, the effect is similar as though you took your computer to the company's building and directly connected it. VPNs (usually) use encryption so that intermediate systems between you and the company (such as your ISP or a malicious wireless network sniffer) cannot eavesdrop your traffic.",
+   "match": [
+    "vpn",
+    "tunnel"
+   ],
+   "attribution": "LawrenceC · superuser.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://superuser.com/questions/257388/what-is-the-difference-between-a-proxy-and-a-vpn#257632",
+   "confidence": 0.93
+  },
+  {
+   "concept": "public-key",
+   "text": "A real-world analogy to public keys would be the padlock. The padlock can be easily closed, but it is much harder to do the reverse, namely opening. It is not impossible, but it requires much more effort to open it than to close it, assuming you don't have the (private) key. Alice could send Bob an open padlock by mail (the equivalent to the public key). Bob then puts a message for Alice into a box and locks the box with the padlock. Now, Bob sends the locked box back to Alice and Alice opens it with her private key.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "public"
+   ],
+   "attribution": "Wikibooks contributors · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Cryptography/Public_Key_Overview",
+   "confidence": 0.92
+  },
+  {
+   "concept": "exploit vs. payload",
+   "text": "The exploit is what delivers the payload. Take a missile as an analogy: you have the rocket and fuel and everything else in the rocket, and then you have the warhead that does the actual damage. Without the warhead, the missile doesn't do very much when it hits — and a warhead isn't much use if it goes off in your own bunker without a rocket to deliver it. The delivery system (the missile) is the exploit, and the payload (the warhead) is the code that actually does something, like a trojan, a keylogger, or a reverse shell. The exploit just gives you the ability to run that payload in the first place.",
+   "match": [
+    "payload",
+    "exploit",
+    "malware"
+   ],
+   "attribution": "NULLZ · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/34420",
+   "confidence": 0.92
+  },
+  {
+   "concept": "multi-factor authentication",
+   "text": "a door badge and a fingerprint are independent of each other, and just having the door badge or the fingerprint is not enough to gain access.",
+   "match": [
+    "mfa",
+    "2fa",
+    "two factor",
+    "multi factor",
+    "tor",
+    "onion routing",
+    "multi",
+    "factor"
+   ],
+   "attribution": "user163495 · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/220386",
+   "confidence": 0.9
+  },
+  {
+   "concept": "phishing",
+   "text": "It's for the same reason we tell our children not to take sweets from strangers, but at the same time we allow them to buy some in the supermarket with their pocket money.",
+   "match": [
+    "phishing",
+    "phish",
+    "spear phishing",
+    "unsolicited",
+    "self",
+    "initiated",
+    "contact"
+   ],
+   "attribution": "Marcel · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/241170",
+   "confidence": 0.9
+  },
+  {
+   "concept": "digital signature",
+   "text": "Very roughly this is analogous to a vendor who receives credit-cards first checking online with the credit-card issuer to find if a given card has been reported lost or stolen.",
+   "match": [
+    "signature",
+    "signatures",
+    "signing",
+    "revocation",
+    "revoked",
+    "digital",
+    "certificate"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Digital_signature",
+   "confidence": 0.9
+  },
+  {
+   "concept": "ransomware",
+   "text": "Just like a user would create a password-protected zip and delete the original file, so does ransomware (except, it keeps the password in secret and makes sure the original file is really inaccessible).",
+   "match": [
+    "ransomware",
+    "ransom"
+   ],
+   "attribution": "Sandra Kent · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/144637",
+   "confidence": 0.9
+  },
+  {
+   "concept": "firewall as a bouncer with a list",
+   "text": "I teach information security fundamentals to noobie analysts so I tend to use these types of analogies alot. Like your firewall is the bouncer at a club with a list. Your not on the list you dont get in. You break the rules, you get thrown out.",
+   "match": [
+    "firewall",
+    "nat",
+    "port forwarding",
+    "ports"
+   ],
+   "attribution": "u/_Jag0ff · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/594egc/eli5how_do_hackers_remain_anonymous_when_they_are/d95vqk2/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "DNS",
+   "text": "An often-used analogy to explain the Domain Name System is that it serves as the phone book for the Internet by translating human-friendly computer hostnames into IP addresses. For example, the domain name www.example.com translates to the addresses 192.0.32.10 (IPv4) and 2620:0:2d0:200::10 (IPv6).",
+   "match": [
+    "dns",
+    "domain name"
+   ],
+   "attribution": "Wikibooks contributors (Intellectual Property and the Internet) · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Intellectual_Property_and_the_Internet/Domain_Name_System",
+   "confidence": 0.9
+  },
+  {
+   "concept": "password storage",
+   "text": "Imagine you manage a bank. You don't want to allow your customers direct access to the money. So you have a teller who has just a computer and a small amount of money to deal with everyday withdrawals and deposits. He cannot access everything, nor can he pass secrets to the customer, because he doesn't have access to these secrets.",
+   "match": [
+    "defense in depth",
+    "layered",
+    "defence in depth",
+    "password storage",
+    "password",
+    "defense",
+    "depth"
+   ],
+   "attribution": "Nzall · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/63393",
+   "confidence": 0.9
+  },
+  {
+   "concept": "active man-in-the-middle tampering",
+   "text": "I'm 15. My mom disapproves of my boyfriend. Whenever I get a letter from him she steams open the envelope and slightly alters what he says to make me want to break up with him. Whenever I send him a letter she opens it and rewrites a word or two so that he will like me less. She keeps her interference subtle so we don't figure it out.",
+   "match": [
+    "mitm",
+    "man in the middle",
+    "interception",
+    "tampering",
+    "eavesdropping",
+    "active",
+    "man",
+    "middle"
+   ],
+   "attribution": "u/Alexis_J_M · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/1pum089/eli5_what_is_a_maninthemiddle_midm_attack/nvpgkbn/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "sandboxing",
+   "text": "In computer security, a sandbox is a security mechanism for separating running programs, usually in an effort to mitigate system failures and/or software vulnerabilities from spreading. The sandbox metaphor derives from the concept of a child's sandbox—a play area where children can build, destroy, and experiment without causing any real-world damage.",
+   "match": [
+    "sandbox",
+    "sandboxing",
+    "sandboxed"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Sandbox_(computer_security)",
+   "confidence": 0.9
+  },
+  {
+   "concept": "symmetric-key cryptography",
+   "text": "With a symmetric key system, Alice first puts the secret message in a box, and then locks the box using a padlock to which she has a key. She then sends the box to Bob through regular mail. When Bob receives the box, he uses an identical copy of Alice's key (which he has somehow obtained previously) to open the box, and reads the message. Bob can then use the same padlock to send his secret reply.",
+   "match": [
+    "symmetric",
+    "aes"
+   ],
+   "attribution": "Wikibooks contributors · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Cryptography/Asymmetric_Ciphers",
+   "confidence": 0.9
+  },
+  {
+   "concept": "why encrypt data in transit",
+   "text": "Sending a data packet into the wild is like making your toddler wear a sandwich board with a destination address and a message, putting him on the bus, and expecting the regular commuters and the bus driver help him get off at the right stop.\nEven if all that happens, everyone on the bus route gets to read your angry drunken letter to the school board as your mindless infant blissfully follows strangers to the right house.",
+   "match": [
+    "in transit",
+    "plaintext",
+    "cleartext",
+    "unencrypted",
+    "transit"
+   ],
+   "attribution": "Ryder · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/123251",
+   "confidence": 0.9
+  },
+  {
+   "concept": "digital signatures",
+   "text": "A digital signature on a message or document is similar to a handwritten signature on paper, but it is not restricted to a physical medium like paper—any bitstring can be digitally signed—and while a handwritten signature on paper could be copied onto other paper in a forgery, a digital signature on a message is mathematically bound to the content of the message so that it is infeasible for anyone to forge a valid digital signature on any other message.",
+   "match": [
+    "signature",
+    "signatures",
+    "signing",
+    "digital"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Digital_signature",
+   "confidence": 0.9
+  },
+  {
+   "concept": "OAuth",
+   "text": "If someone has my password then they have full authority over my account right up to and including changing the password itself. If they have an OAuth token they have whatever limited rights I granted to the token (could be read only, or limited to a subset of data, or automatically expiring after 24 hours).\n\nThe analogy that is often used is the special set of valet keys that come with some cars. They allow someone to drive the car - but no faster than 20mph, cannot use stereo, etc.",
+   "match": [
+    "oauth",
+    "delegated authorization",
+    "valet"
+   ],
+   "attribution": "zmmmmm · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=2562682",
+   "confidence": 0.9
+  },
+  {
+   "concept": "blockchain immutability",
+   "text": "If the bank makes an error with your account, they fix it, but they don’t delete it.\n\nIf they accidentally take $20,000 from your account, and then they correct the error and put $20,000 back into your account, your bank statement still shows the $20,000 deduction and the $20,000 deposit to fix it. They don’t just delete the line of the transaction and pretend it didn’t happen.\n\nSame deal with blockchain - the error stays forever, and then the error gets corrected, and the correction also stays forever.",
+   "match": [
+    "blockchain",
+    "ledger",
+    "immutability",
+    "append",
+    "only",
+    "are"
+   ],
+   "attribution": "u/WittyFix6553 · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/1r972ws/eli5_if_blockchains_are_immutable_how_do_users/o6acn9k/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "DDoS",
+   "text": "Imagine that you are at home and you are waiting for a really important phone call from your best friend. All of a sudden, tens of thousands of people call your phone number at the same time trying to tell you something. The odds of your friend's important information getting through to you go down drastically, because your phone line can only handle one call at a time. DDoS attacks are kind of like that, only with a computer. While the computer/server has more resources that it can use simultaneously, eventually, it too can get overwhelmed.",
+   "match": [
+    "ddos",
+    "dos",
+    "denial of service",
+    "botnet",
+    "flooding"
+   ],
+   "attribution": "u/C0unt_Z3r0 · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/4z7k3p/eli5what_are_ddos_attacks/d6tgzvh/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "TLS/SSL",
+   "text": "SSL serves three purposes — I'll use a snail-mail analogy to illustrate: it keeps the communication secret, preventing the mailman from reading your letters; it verifies that the communication is unaltered, preventing the mailman from altering your letters; and it verifies the identity of the sender, preventing someone else from sending you letters under a false name. The first two purposes are worthless unless the third one is intact: if someone else can impersonate the originator of a message, encrypting it does nothing but prevent yet another attacker from also reading your already-compromised communication.",
+   "match": [
+    "tls",
+    "ssl",
+    "https",
+    "certificate",
+    "handshake",
+    "confidentiality",
+    "integrity",
+    "together"
+   ],
+   "attribution": "tdammers · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/7100",
+   "confidence": 0.9
+  },
+  {
+   "concept": "HTTPS/encryption as a sealed letter vs. an o…",
+   "text": "Think of your WiFi connection like a mailman. Unencrypted data is like sending a post card. Anyone who picks it up (like the mailman) can read it everything you wrote. Encrypted data (like https) is like a letter. Your mailman can only see what’s on the outside of the envelope - where it’s from and where it’s going. Your message is safe as long as the envelope is intact. \n\nPublic WiFi is generally ok as long as you can guarantee your data is encrypted. However, there’s always the chance that bad actors who either run the public WiFi or are just on it are snooping on you. How dangerous that is depends on what you’re doing online.",
+   "match": [
+    "tls",
+    "ssl",
+    "https",
+    "certificate",
+    "handshake",
+    "encryption",
+    "encrypted",
+    "encrypt"
+   ],
+   "attribution": "u/creature_report · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/1cc71ku/eli5why_do_they_say_not_to_use_public_wifi_arent/l13b9mq/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "VPN + TLS layering",
+   "text": "Imagine SSL is like a tube running from your browser to a server: you send data inside that tube and no one outside it can see the data. A VPN is a different, larger tube from you to the VPN server. When you use both together, you pass the SSL tube through the VPN tube — your data sits inside both tubes as it leaves your computer, but the VPN tube ends at the VPN server, while the SSL tube continues on, uninterrupted, all the way to the destination server. So the VPN operator can see that encrypted SSL traffic is passing through their tube, but they can't see inside the inner SSL tube itself — there's no compromise to the security of the data.",
+   "match": [
+    "tls",
+    "ssl",
+    "https",
+    "certificate",
+    "handshake",
+    "vpn",
+    "tunnel",
+    "layering"
+   ],
+   "attribution": "Cristian Dobre · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/27894",
+   "confidence": 0.9
+  },
+  {
+   "concept": "phishing",
+   "text": "Imagine that this was an exercise on how to prevent an illness from spreading worker to worker. A deadly virus that will lay dormant until it has found an appropriate host and will then possibly kill everyone, but they don't know that it is spread by people that are randomly coming in the front door handing them packages.\n\nWe have enough common sense to know not to just accept packages from people that walk into the building, but what people don't see is that this is exactly what is happening with their emails. So this is about a change in culture and perspective, and I don't really see what part of the knowledge of this is going too far when you are talking about education.",
+   "match": [
+    "phishing",
+    "phish",
+    "spear phishing"
+   ],
+   "attribution": "Roostercrab · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/207389/when-is-phishing-education-going-too-far#207397",
+   "confidence": 0.9
+  },
+  {
+   "concept": "defense in depth",
+   "text": "Defense in depth is sometimes thought of as forming the layers of an onion, with data at the core, and network security, host-based security, and application security forming the outermost layers. The idea behind the approach is to defend a system against any particular attack using several independent methods at once, so that an attacker who breaches one layer still has to get through the next one, and the next, before reaching anything of value. Its intent is to provide redundancy in the event any single security control fails or a vulnerability in it is exploited — no one layer is assumed to be perfect, so the system's overall security doesn't depend on any single layer holding.",
+   "match": [
+    "defense in depth",
+    "layered",
+    "defence in depth",
+    "defense",
+    "depth",
+    "onion"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Defense_in_depth_(computing)",
+   "confidence": 0.9
+  },
+  {
+   "concept": "SQL injection",
+   "text": "The idea that first came to mind was to explain it in terms of a Mad Lib. The stories where words are left out, and to fill in the blanks you ask the group for words of the types indicated and write them in, then read the resulting story.\nThat's the normal way to fill out a Mad Lib. But what if someone else knew the story and what blanks you were filling in (or could guess)? Then, instead of a single word, what if that person gave you a few words? What if the words they gave you included a period ending the sentence? If you filled it in, you may find that what was provided still \"fits\", but it drastically changes the story more than any one word that you'd normally fill in could ever do.",
+   "match": [
+    "sqli",
+    "sql injection",
+    "injection",
+    "sql"
+   ],
+   "attribution": "KeithS · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/25731",
+   "confidence": 0.9
+  },
+  {
+   "concept": "prompt injection",
+   "text": "This is similar to cross-site scripting vulnerabilities in browsers. A chat session happens in a sandbox, but any text you give to the bot can be interpreted as instructions. Text is as bad as JavaScript, to the bot.\n\nNormally, in a chat session you would actually read any text you paste into it before you hit submit. This is much like pasting code from StackOverflow into your app - you read it before executing it. When the system imports arbitrary text and automatically sends it to the bot without anyone reading it, it bypasses this review. You don't want to start automatically including text from arbitrary sites on the Internet for the same reason you don't want to include JavaScript from arbitrary sites on the Internet.",
+   "match": [
+    "prompt injection",
+    "prompt",
+    "llm",
+    "jailbreak",
+    "injection"
+   ],
+   "attribution": "skybrian · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=35309516",
+   "confidence": 0.9
+  },
+  {
+   "concept": "public/private key encryption",
+   "text": "Imagine I had a bunch of locks, and a single key to unlock them. Let's say someone wants to drop off my lunch before I get to work, but there is a notorious lunch thief. I give the lunch buyer a lock. When they get to the office, they put the lunch in the fridge, and put on the lock. Now, no one can get to it and eat my lunch.\n\nI have the only key, so when I arrive, I unlock the fridge. I can now eat my lunch, knowing no one ate it or messed with it!\n\nThe public key is like the lock. I can give it to anyone, and they can make sure any data I don't want read is secure. Once that data is secure, the only way to make it accessible again is with the private key, which only I have.\n\nThere's way more to it, but that's the really basic answer.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "public",
+    "private"
+   ],
+   "attribution": "u/VillageSmithyCellar · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/1nd0d3g/eli5_how_do_privatepublic_keys_work_for/ndd9c4r/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "DDoS",
+   "text": "Imagine you have a friend named Dyn with super great memory. Everytime you need someone's phone number, you ask your friend for it. Need Bill's number? No problem, just ask Dyn. Need Sam's number? Just ask Dyn. You don't know people's phone numbers, but you know their names, and that's enough for Dyn.\n\nNow imagine someone wants to be an asshole, so they take up all of Dyn's time asking for numbers they don't really care about. Dyn doesn't have time to answer your questions anymore.\n\nThat's what DNS is - a way to translate names we can remember to IP addresses we would have a hard time remembering. Dyn is one of the major DNS players in the internet, and all of Dyn's time and resources were being taken up so it couldn't answer you (i.e., a distributed denial of service attack).",
+   "match": [
+    "ddos",
+    "dos",
+    "denial of service",
+    "botnet",
+    "dns",
+    "phonebook"
+   ],
+   "attribution": "u/liberty_me · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/58p9qk/eli5what_the_ddos_attack_on_dyndns_is_and_why_its/d92k8b8/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "session hijacking",
+   "text": "Using door locks as an analogy: your account can be seen as a room in a building. When you log in, the building's owner creates a door and puts an automatic lock on it, so that only you can enter — your session token is your key, typically stored in your browser's cookies. Discarding your token by deleting your cookies is simply destroying YOUR copy of the key; the lock itself is left completely untouched, so if someone else already copied your key before you threw yours away, they can still get in. Explicitly logging off, by contrast, is like asking the building's owner to brick up the doorway and cut a new one: there's no guarantee they'll actually do it, but you've made your wishes to invalidate the old key known — which is what actually protects you against session hijacking.",
+   "match": [
+    "cookie",
+    "cookies",
+    "tracking",
+    "session hijacking",
+    "session",
+    "logout",
+    "hijacking"
+   ],
+   "attribution": "Ghedipunk · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/211138",
+   "confidence": 0.9
+  },
+  {
+   "concept": "air gap",
+   "text": "An air-gapped computer or network has no network interfaces, wired or wireless, connected to outside networks — a physical or conceptual air gap, analogous to the air gap used in plumbing to maintain water quality. In plumbing, an air gap is the unobstructed vertical space between a water outlet and the flood level of a fixture — for instance, the space between a faucet and the rim of a sink — so that water can fall freely from the outlet into the fixture, but nothing in the fixture can ever be siphoned or pushed back up into the supply line, even if the supply loses pressure. A network air gap works the same way: because there is no physical link at all between the isolated system and the outside world, there is no path for anything to flow back across the gap in either direction, no matter how either side is otherwise compromised.",
+   "match": [
+    "air gap",
+    "airgap",
+    "air gapped",
+    "air",
+    "gap"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Air_gap_(networking)",
+   "confidence": 0.9
+  },
+  {
+   "concept": "social engineering",
+   "text": "Social engineering is not only about exploiting information an attacker has, but about exploiting patterns of human behavior — specifically, emotions. A real-life example: you want a secretary to plug your USB drive into her machine. Politely asking might get you rejected, especially against policy. But if you show up in a suit, spill coffee on your shirt and your papers, and say 'I'm so late for a meeting — a cat ran out in front of my car and I braked hard, the cat's fine but my papers aren't; I know this is strange, but could you print this for me? I'm really late and your boss might be angry with me!' — you're exploiting emotion, not policy. She may know she shouldn't plug in an unknown device, and may even be trained on that exact policy, but if your microexpressions read as genuine, sympathy tends to override the rule she was taught, because that's how humans are built.",
+   "match": [
+    "social engineering",
+    "pretexting",
+    "social",
+    "engineering"
+   ],
+   "attribution": "Chris Dale · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/11948",
+   "confidence": 0.9
+  },
+  {
+   "concept": "side-channel",
+   "text": "Side channels are usually unintended things that leak information about what your application is doing. For example, imagine it takes more time to compare a submitted password against the stored value the further into the string the comparison gets before failing — say, 1 second per character checked, with an 8-character correct password, and the check aborting at the first wrong character. A 1-character guess fails almost instantly; an 8-character guess takes a full second longer than shorter ones, revealing the password's length. The attacker then notices that guesses starting with the correct first character take measurably longer than ones that don't, because that comparison ran one character deeper before returning false. Instead of brute-forcing all 96^8 possible passwords, the attacker can recover it one character at a time, needing at most 96×8 guesses — just by measuring response time.",
+   "match": [
+    "timing attack",
+    "side channel",
+    "side",
+    "channel",
+    "timing"
+   ],
+   "attribution": "Conor Mancone · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/212761",
+   "confidence": 0.9
+  },
+  {
+   "concept": "TLS key exchange",
+   "text": "How can two parties who never met agree on a secret 'password' in a way that an eavesdropper can't learn it? Use an analogy with the old postal system: Alice sends a letter to Bob saying she wants to communicate. Bob receives the message and sends Alice a package with an open padlock. Alice receives the padlock, generates a secret, puts it inside a box, locks the box with the padlock, and sends the box to Bob. Bob gets the locked box, unlocks it with his key, and reads the secret. An eavesdropper can't open the padlock, but she CAN intercept the padlock in transit and replace it with a padlock of her own — so to prevent that, a trusted third party 'photographs' everyone's padlocks and distributes the photographs, so Alice can check the padlock she receives against the trusted photograph before using it. In the web world, that trusted third party is a Certificate Authority, and the photographs are certificates.",
+   "match": [
+    "tls",
+    "ssl",
+    "https",
+    "certificate",
+    "handshake",
+    "pki",
+    "certificate authority",
+    "authority",
+    "mitm"
+   ],
+   "attribution": "Matthew · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/143429",
+   "confidence": 0.9
+  },
+  {
+   "concept": "symmetric vs. asymmetric encryption",
+   "text": "Symmetric cryptography is like a lockbox, such as a small fireproof safe: a key is required both to lock and unlock the box, and the same key does both things. If you and I both had a key to one of these lockboxes, we could exchange secret messages without anyone else being able to access the contents — but what if I were on the other side of the world, and had to mail you the key first? Mailing a key in an ordinary envelope isn't secure, because someone could open it, copy the key, and reseal it. So instead, I send you an OPEN padlock, engraved with my name and a serial number you could call the store to verify. You put your key to the lockbox inside a box, close my padlock on the latch, and mail it back to me — now I'm the only one who can open it, because I'm the only one with the key to my own padlock. That padlock-only exchange, where nothing secret ever travels in the open, is the intuition behind asymmetric key exchange.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "symmetric",
+    "aes"
+   ],
+   "attribution": "Lucas Kauffman · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/29463",
+   "confidence": 0.9
+  },
+  {
+   "concept": "key management",
+   "text": "If we were to return to the postal analogy used in the discussion of Asymmetric Ciphers. Suppose Alice has a secret message to send to Bob in the mail. Alice could put the message in her lock box and use Bob's padlock to lock it allowing Bob to open it with his key, as describe earlier. But if it were a really important message or Alice and Bob had a higher expectation of the opponent they wished to thwart (Bob's girlfriend knows where Bob keeps his keys) Alice and Bob might want to resort to a more complicated crypto system. For example Bob could have multiple keys, one he keeps on his key chain, one he keeps in a rented Post Office box and one that is in a box in a Swiss bank vault. Bob might welcome this sort of security for really serious messages but for day to day messages between Bob and Alice Bob will no doubt find a daily flight to Switzerland rather expensive inconvenient. All crypto systems must face a resource trade-off between convenience and security.",
+   "match": [
+    "key management"
+   ],
+   "attribution": "Wikibooks contributors (Cryptography) · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Cryptography/Proportionality_of_Secrecy",
+   "confidence": 0.9
+  },
+  {
+   "concept": "public/private key encryption and digital si…",
+   "text": "Everybody is answering with mathematical explanations, which are fine. An intuitive explanation is padlocks. Imagine you have a padlock and a matching key. If you want someone to send you a message, you send your unlocked padlock through the mail; this is the Public Key. The person sending you a message puts it into a box and locks it with the padlock; this is encrypting with the recipient's Public Key. Note that at this point, the sender can't unlock what they've just locked , nor can anyone who intercepted the lock in shipping and quietly made a copy of it. When that package gets to me, I unlock it with my key; this is the Private Key, which I don't send to anyone. \n\nAs others have mentioned, public key (aka asymmetric key) cryptography uses pairs of keys, each of which can be used to lock something by itself and to unlock something locked by the other. \n\nDoing this in reverse is how you digitally sign content, by the way; I lock something with my Private Key and if my Public Key unlocks it, you know I sent the thing, because only I have the Private Key.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "signature",
+    "signatures",
+    "signing",
+    "public",
+    "private",
+    "digital"
+   ],
+   "attribution": "u/dails08 · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/1k5k5q8/eli5_concerning_encryption_how_can_it_be_that_a/moingkf/",
+   "confidence": 0.9
+  },
+  {
+   "concept": "TLS handshake",
+   "text": "A browser's red warning for a self-signed certificate doesn't mean the connection isn't encrypted — it means the site isn't signed by an authority your browser recognizes. This is analogous to selling alcohol in a jurisdiction where sales are age-restricted: the law says you can't sell to someone under a given age, but doesn't specify which forms of ID are acceptable proof. You're a store clerk in the state of Comodo — you easily recognize IDs issued by the Comodo government. A customer from the state of VeriSign shows up: you check your book of 'Trusted Root' authorities, find VeriSign listed with notes on how to verify their IDs, and complete the sale with confidence. But a customer from the land of DigiNotar shows up, and your book has no entry for DigiNotar at all — strictly speaking the sale might still be legal if the customer really is old enough, but you have no authoritative way to verify the claim, so you're taking it purely on trust. That's exactly the position a browser is in with a self-signed certificate: it isn't necessarily lying, but there's no trusted third party vouching for it.",
+   "match": [
+    "tls",
+    "ssl",
+    "https",
+    "certificate",
+    "handshake",
+    "self",
+    "signed"
+   ],
+   "attribution": "Iszi · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/21512",
+   "confidence": 0.9
+  },
+  {
+   "concept": "symmetric vs public-key encryption",
+   "text": "An analogy which can be used to understand the advantages of an asymmetric system is to imagine two people, Alice and Bob, sending a secret message through the public mail. In this example, Alice has the secret message and wants to send it to Bob, after which Bob sends a secret reply.\n\nWith a symmetric key system, Alice first puts the secret message in a box, and then locks the box using a padlock to which she has a key. She then sends the box to Bob through regular mail. When Bob receives the box, he uses an identical copy of Alice's key (which he has somehow obtained previously) to open the box, and reads the message. Bob can then use the same padlock to send his secret reply.\n\nIn an asymmetric key system, Bob and Alice have separate padlocks. Firstly, Alice asks Bob to send his open padlock to her through regular mail, keeping his key to himself. When Alice receives it she uses it to lock a box containing her message, and sends the locked box to Bob. Bob can then unlock the box with his key and read the message from Alice. To reply, Bob must similarly get Alice's open padlock to lock the box before sending it back to her. The critical advantage in an asymmetric key system is that Bob and Alice never need send a copy of their keys to each other. This substantially reduces the chance that a third party (perhaps, in the example, a corrupt postal worker) will copy a key while it is in transit, allowing said third party to spy on all future messages sent between Alice and Bob.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "symmetric",
+    "aes",
+    "public"
+   ],
+   "attribution": "Wikibooks contributors (Cryptography) · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Cryptography/Asymmetric_Ciphers",
+   "confidence": 0.9
+  },
+  {
+   "concept": "hashing",
+   "text": "Let's say your database with passwords is leaked or stolen:\n\nIf passwords are in plain-text, all your password are belong to us.\n\nIf passwords are hashed, all passwords are still in a shared bank-vault that must be cracked.\n\nIf passwords are hashed and salted, each password is in its own private bank-vault.",
+   "match": [
+    "hash",
+    "hashing",
+    "hashed",
+    "password hash",
+    "salt",
+    "salting",
+    "salted"
+   ],
+   "attribution": "Briguy37 · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/63392/what-is-a-good-analogy-to-explain-to-a-layman-why-passwords-should-be-hashed#63600",
+   "confidence": 0.88
+  },
+  {
+   "concept": "SQL injection",
+   "text": "Can you remove the brakes of your car to save weight? Well, if you only drive on an isolated site and keep the speed at a minimum and ensure that nothing extraordinary will ever happen (like an uninformed person using the car), probably.\n\nYour method \"works\" as long as you control every single aspect of the system and don't overlook anything.",
+   "match": [
+    "sqli",
+    "sql injection",
+    "injection",
+    "sql",
+    "validation"
+   ],
+   "attribution": "Fleche · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/66490/faster-sql-injection-prevention#66537",
+   "confidence": 0.88
+  },
+  {
+   "concept": "honeypot",
+   "text": "It is actually isolated, monitored, and capable of blocking or analyzing the attackers. This is similar to police sting operations, colloquially known as \"baiting\" a suspect.",
+   "match": [
+    "honeypot",
+    "decoy"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Honeypot_(computing)",
+   "confidence": 0.85
+  },
+  {
+   "concept": "key exchange without a pre-shared secret",
+   "text": "Alice puts the trinket in a box, locks it and sends it to Bob.\nBob locks the box again with his lock and sends the box back.\nAlice removes her lock and sends it to Bob.\nBob removes the final lock and takes the trinket.\nThe puzzle's trick is double locking the box.",
+   "match": [
+    "key exchange"
+   ],
+   "attribution": "Wikibooks contributors · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Cryptography/Public_Key_Overview",
+   "confidence": 0.85
+  },
+  {
+   "concept": "certificate authorities",
+   "text": "So giving you my public key, along with the encrypted data and signature as described is just about as trustworthy as giving you a business card that I had printed at Staples for $50. To really trust that I am who I say I am, and am therefore trust worthy, you need someone to sign off on my identity (like checking a driver's license).",
+   "match": [
+    "pki",
+    "certificate authority",
+    "certificate",
+    "authorities"
+   ],
+   "attribution": "bethlakshmi · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/8043",
+   "confidence": 0.85
+  },
+  {
+   "concept": "tamper-resistant hardware",
+   "text": "You can imagine the ATM as a kind of Davy Crockett entrenched in Alamo fort and shouting \"you'll never take me alive !\". By comparison, a basic PC lacks all forms of tamper-resistance and would be more adequately compared with an open buffet at a charity event guarded by non-violent buddhist monks who will discourage discourteous behaviour by making stern faces and striking perpetrators with severe glares only.",
+   "match": [
+    "hsm",
+    "hardware security module",
+    "tamper",
+    "hardware",
+    "atm"
+   ],
+   "attribution": "Tom Leek · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/32922",
+   "confidence": 0.85
+  },
+  {
+   "concept": "cookies",
+   "text": "Cookies work like a doctor entering data into a patient's card. When the patient returns to the doctor, information about the patient's previous visits helps the doctor provide better service to the patient.\n\nGoing back to the analogy of cookies acting like a patient's card, if the doctor began to divulge information about the patient to a third party (e.g., to health insurance or pharmaceutical companies), the person's privacy would be compromised.",
+   "match": [
+    "cookie",
+    "cookies",
+    "tracking"
+   ],
+   "attribution": "Wikibooks contributors (Nets, Webs and the Information Infrastructure) · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Nets,_Webs_and_the_Information_Infrastructure/Viruses,_Privacy_and_Security",
+   "confidence": 0.85
+  },
+  {
+   "concept": "digital signatures",
+   "text": "As a scenario, imagine that Alice and Bob live in the same town, but I moved away and can no longer come visit. We all talk over email, signed with PGP. Before I moved, we all got together and exchanged public keys in person. Alice has just suffered a disk failure and didn't make a backup, so she has lost her keypair. She creates a new keypair, but I don't have a way of validating it. However, I trust Bob. He signs her public key with his private key, and distributes that signature. I can then trust Alice's signature by proxy, without ever validating it myself.",
+   "match": [
+    "signature",
+    "signatures",
+    "signing",
+    "digital"
+   ],
+   "attribution": "Polynomial · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/108163/sign-gnupg-master-key-with-own-x-509-certificate#108165",
+   "confidence": 0.85
+  },
+  {
+   "concept": "DDoS",
+   "text": "You can't really defend against DoS attacks due to the nature of TCP/IP: the best you can do is protect the resources that aren't inherently vulnerable to being flooded. The simple analogy of a house might help here: you can protect your door, but not the street leading to it. Rate-limiting login attempts locks down your 'door' — it makes brute-forcing a password through the login form infeasible — but it does nothing about someone simply flooding the 'street', your network uplink itself, with more traffic than it can carry, since that's a function of raw bandwidth rather than of how well any single door is locked.",
+   "match": [
+    "ddos",
+    "dos",
+    "denial of service",
+    "botnet",
+    "rate limit",
+    "rate limiting",
+    "rate",
+    "limiting"
+   ],
+   "attribution": "user6373 · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/10307",
+   "confidence": 0.85
+  },
+  {
+   "concept": "HSM",
+   "text": "To make an analogy: imagine your car key. If somebody was able to use your car key once, does that matter — is your car compromised? No, because your car key was not copied; the adversary gained only one-time access, and as soon as you've reclaimed the key, the car is fully secure again. But if somebody copies the key, it's effectively compromised and needs to be replaced. Encryption keys inside a hardware security module work the same way: the main objective of an HSM isn't just to limit who can send it requests — it's to ensure the key itself never leaves the HSM at all, so an attacker can, at most, get one-time use of it through the device's interface, never a copy they can walk away with.",
+   "match": [
+    "hsm",
+    "hardware security module",
+    "hardware",
+    "module"
+   ],
+   "attribution": "sebastian nielsen · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/137941",
+   "confidence": 0.85
+  },
+  {
+   "concept": "privilege escalation",
+   "text": "This is more akin to malware than to an exploit, in the sense that it does something malicious without there being an underlying vulnerability to exploit. On the surface, editing a login script to run arbitrary code the next time a user logs in looks like a good way for an attacker to escalate privileges. But to edit that file in the first place, you already need the ability to write arbitrary files as the user you're attacking — which is already an incredibly strong position to be in. An analogy for this: if you're already holding a gun, a toothpick will not be a better weapon. An attacker in that position isn't escalating privileges by planting the script; they're just making the access they already have more convenient or more persistent.",
+   "match": [
+    "privilege escalation",
+    "privesc",
+    "privilege",
+    "escalation",
+    "downgrade",
+    "foothold"
+   ],
+   "attribution": "user163495 · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/224549",
+   "confidence": 0.85
+  },
+  {
+   "concept": "PKI",
+   "text": "When you're using public key encryption, it's important to be sure that the key you use to encrypt a message really belongs to the intended recipient. PGP makes this easier by having a way to tell others, 'I believe this key belongs to this person, and if you trust me, you should believe that too' — telling the world you trust someone's key is called 'signing their key', which means anyone who uses that key can see that you vouched for it. To encourage everyone to check and sign each other's keys, PGP users organize key-signing parties. Analogy: it's like a networking party, where you introduce your friends to other friends — trust in a key spreads the same way trust in a person spreads through a social introduction, one vouching link at a time.",
+   "match": [
+    "pki",
+    "certificate authority",
+    "pgp",
+    "verification"
+   ],
+   "attribution": "Electronic Frontier Foundation · ssd.eff.org",
+   "license": "CC BY 3.0 US",
+   "url": "https://ssd.eff.org/glossary",
+   "confidence": 0.85
+  },
+  {
+   "concept": "zero-day exploits",
+   "text": "A file can be one of two things: instructions that get executed, or data. Opening executable code is very risky — it is the equivalent of someone sending you a knife with a note that says 'please stab yourself, thanks': you can do it, but the odds it benefits you are quite low. Plain data, like a picture or a text file, should not be dangerous, because it's just data — this is where bugs and vulnerabilities come in. Interpreting data is not always easy, and if the programmers who wrote the software that reads it made mistakes, specially crafted data can make that program do something it should never do. That's the root of a huge share of real-world exploits: not a knife handed to you directly, but a seemingly harmless picture or document that tricks the program reading it into picking up the knife on your behalf.",
+   "match": [
+    "zero day",
+    "0day",
+    "zeroday",
+    "zero",
+    "day",
+    "exploits",
+    "malicious",
+    "executable"
+   ],
+   "attribution": "nvoigt · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/276726",
+   "confidence": 0.85
+  },
+  {
+   "concept": "JWT",
+   "text": "A JWT is like a keycard. If a hotel gives you a keycard to access your room, the card itself holds the credentials which give you access to the room. That's the core principle behind JWT.\n\nIf you want to ban someone due to malicious conduct, then you need some kind of ban mechanism, but this is a concern of spam prevention and attack mitigation. You need such a mechanism regardless of what session mechanism you use. With JWT, you may need to do 1 lookup to check the account object, with regular session IDs you need 2 lookups (one for the account object and one for the session object).\n\nAt small scale, there are scenarios where you don't even need a blacklist. With the physical hotel scenario, your keycard remains active until it expires — there are many such scenarios where a ban doesn't need to take effect immediately.",
+   "match": [
+    "jwt",
+    "json web token",
+    "token"
+   ],
+   "attribution": "jongjong · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=40496551",
+   "confidence": 0.85
+  },
+  {
+   "concept": "Tor",
+   "text": "Talking about encrypting metadata doesn't really make sense by itself. The metadata is, more or less, who you're sending the thing to. It's like saying you encrypted the address on an envelope - the postman's not going to take that anywhere if it's got gibberish printed on the front. If I'm your ISP, I can read who you're sending it to right off of your packets, and if that information's not there, then I can't send the packets on - the message doesn't go anywhere.\n\nYou can obfuscate it with onion routing, provided a significant percentage of the network hasn't been compromised. But ISPs taken as a group will have a look-down/shoot-down perspective on the whole thing: if I know who you talk to and who they talk to (and so on), I can follow you through the system fairly easily, and even with some low-level obfuscation in place you still give up a great many bits of information.",
+   "match": [
+    "tor",
+    "onion routing",
+    "onion",
+    "routing"
+   ],
+   "attribution": "6d0debc071 · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=6008523",
+   "confidence": 0.85
+  },
+  {
+   "concept": "software vulnerabilities as unintended crack…",
+   "text": "Bugs in the software mostly. To continue the analogies: people think there's a big safe wall protecting them, but there might be cracks in the wall they don't know about, and the hackers exploit those cracks to get through the wall.\n\nWhy are there cracks? Poor construction, or side effects of construction that only come up later.\n\nMost security exploits are basically done by exploiting behavior in program code that's there, but shouldn't be there, as it makes the program behave in ways it should not.\n\nImagine a door with a punch-code combination lock. The code is 10 digits long, so that's a lot of combinations, and each person has their own entry code. However, some guy figures out that if he types in \"9764318520\" the door always opens. This is not an advertised feature of the lock, but it's in the code that governs the lock, so it can be exploited by someone who finds this behavior.",
+   "match": [
+    "vulnerability",
+    "vulnerabilities",
+    "flaw",
+    "software"
+   ],
+   "attribution": "u/Jack_BE · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/2qdtcq/eli5_why_does_it_appear_so_easy_for_hackers_to/cn57d65/",
+   "confidence": 0.85
+  },
+  {
+   "concept": "password manager zero-knowledge encryption",
+   "text": "This is the ELI5 version:\n\nThey actually don't know your passwords.\n\nImagine you want to store some important information in your bank. You could just give it to them and trust they won't look. But what if they do? Or what if the bank gets robbed? So instead you lock the information in a box and save the key at home. Then you give the box to them. They can safely store the box but they don't know what's in the box. So when you need the information you tell them to send the box to you. Then you open it with your key, look at the information, put it back, lock the box again, and send it back to the bank.\n\nBut how do you know the bank can't just open the box with brute force?\n\nWell, the box is made up of a very strong material, let's call it Cryptonite. This is so strong it is practically impossible to break. Technically you could break it, but you would have to drill for BILLIONS of years until it actually breaks.\n\nThis is how a GOOD online password manager works. So make sure you choose a well-known service.",
+   "match": [
+    "zkp",
+    "zero knowledge",
+    "password manager",
+    "vault",
+    "password",
+    "manager",
+    "zero",
+    "knowledge",
+    "lockbox"
+   ],
+   "attribution": "u/Oscarsson · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/dno87d/eli5_how_do_online_password_managers_work_and_how/f5dyzy6/",
+   "confidence": 0.85
+  },
+  {
+   "concept": "zero-knowledge proof",
+   "text": "In this story, Peggy has uncovered the secret word used to open a magic door in a cave. The cave is shaped like a ring, with the entrance on one side and the magic door blocking the opposite side. Victor wants to know whether Peggy knows the secret word; but Peggy, being a very private person, does not want to reveal her knowledge (the secret word) to Victor or to reveal the fact of her knowledge to the world in general.\nThey label the paths from the entrance A and B. First, Victor waits outside the cave as Peggy goes in. Peggy takes either path A or B; Victor is not allowed to see which path she takes. Then, Victor enters the cave and shouts the name of the path he wants her to use to return, either A or B, chosen at random. Providing she really does know the magic word, this is easy: she opens the door, if necessary, and returns along the desired path.\nHowever, suppose she did not know the word. Then, she would only be able to return by the named path if Victor were to give the name of the same path by which she had entered. Since Victor would choose A or B at random, she would have a 50% chance of guessing correctly.",
+   "match": [
+    "zkp",
+    "zero knowledge",
+    "zero",
+    "knowledge",
+    "proof"
+   ],
+   "attribution": "Wikipedia contributors · en.wikipedia.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikipedia.org/wiki/Zero-knowledge_proof",
+   "confidence": 0.85
+  },
+  {
+   "concept": "public-key cryptography and hybrid encryption",
+   "text": "ELI5 example how public-key cryptography works:\n\nImagine persons A and B want to transfer secret message but they can only send packages to each other in mail which is unsecure. Anyone can steal a package and take what ever contents are inside or even swap them to something else.\n\nIn symmetric key cryptography they would use a locked box and they both would have a key for the lock. Problem is they can't exchange keys safely. If A buys locked box, how can he send key for it to B without possibility that someone steals the key and makes copies.\n\nIn public-key cryptography person A buys a lock (and keeps the key for it in some secure place) and sends the unlocked lock to person B. Person B then puts his message inside a box and locks it with A's lock. Then he can send it safely to A without anyone having access to the message.\n\nLocks in the examples are cryptographic algorithms. Public-key algorithms are much more expensive to calculate so usually they are just used to do the key-exchange: both send a symmetric cryptography key to each other using public-key cryptography. From there on they just use the symmetric cryptography to encrypt their communication.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "public",
+    "hybrid"
+   ],
+   "attribution": "u/Latexi95 · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/9cwn48/eli5_publickey_cryptography/e5dr2fm/",
+   "confidence": 0.85
+  },
+  {
+   "concept": "ransomware",
+   "text": "Pretend you're a kid with a diary. You write your entire day's activities in there every day, and read it back often to remember important details. Occasionally you go back and change things if needed.\n\nOne day, you find a lock on that diary. You don't have the key, and you don't have another way of removing it. This sucks, because you can't write anything new, and can't read your past entries, and you really need to look up what happened last week.\n\nYou remember you had started photocopying the entries every weekend. Great, you have the photocopies and can reference old events, but can't really change anything. They're also unwieldy and aren't in a nice neat book like you want.\n\nYour jerk older brother says he put the lock on because he wanted you to give him $50, but you don't have $50 and think he did it just because he's a jerk anyway.\n\nYou buy a new blank diary and recruit your best friend (who you trust entirely) to help you rewrite the photocopies into the new diary. This takes a couple of days, but it gets done. In the end though, you have lost a week's worth of entries, plus however many days it took you to copy everything back. You also don't know if your jerk brother took his own copies of the diary to use for leverage later, but he definitely read it all regardless.\n\nAs for how they lock the files, it's just like any kind of encryption. If you write a note to your pal using a cereal-box prize decoder ring, he - and anyone else - wouldn't be able to read the message unless they also had the ring (the cipher). It works the other way too: if someone took your data, processed it with that decoder-ring cipher, and didn't give you the original data or the cipher, you couldn't use your data.",
+   "match": [
+    "ransomware",
+    "ransom"
+   ],
+   "attribution": "u/youcanreachardy · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/1rhddjs/eli5_why_can_a_ransomware_attack_shut_down_an/o7yt234/",
+   "confidence": 0.85
+  },
+  {
+   "concept": "threat actor behavior",
+   "text": "Criminal - A purely criminal hacker has something to gain by attacking servers, such as money or digital resources. They won't waste time with revenge. These attackers are like water. They seek the path of least resistance.",
+   "match": [
+    "tor",
+    "onion routing",
+    "threat actor",
+    "threat",
+    "actor"
+   ],
+   "attribution": "forest · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/180948/brutalized-vps-recovery-data-now-available-considerations#180960",
+   "confidence": 0.8
+  },
+  {
+   "concept": "public key crypto",
+   "text": "A passkey is like PGP of the 1990s - public/private key, but for auth instead of email encryption. Public/private key is not the easiest idea for a layman to understand, so most sites don't message it that way - like modern credit cards, which also use public/private keys under the hood, but the user-facing message is just \"your card number is kept safe,\" not an explanation of the PKI behind it.",
+   "match": [
+    "public key",
+    "private key",
+    "asymmetric",
+    "rsa",
+    "keypair",
+    "passkey",
+    "passkeys",
+    "webauthn",
+    "fido",
+    "public"
+   ],
+   "attribution": "wenc · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=44465297",
+   "confidence": 0.8
+  },
+  {
+   "concept": "CVE/CVSS severity",
+   "text": "When cryptographers say a hash function is 'broken up to 46 rounds', this cannot be read as 'the algorithm is 46/64ths broken' — attack efficiency tends to scale exponentially with the number of rounds removed, not linearly. An analogy: suppose you want to grow a fortune by doubling it ten times, starting from one dollar; after ten doublings you'd have 1024 dollars, your goal. After eight doublings you have only 256 dollars. Eight doublings out of ten is 80% of the work — so why don't you have 80% of 1024 (819.2 dollars)? The same non-linearity applies whenever a security report describes a vulnerability or cryptanalytic attack as 'X% of the way there': being most of the way through the steps of an attack is nowhere near the same as being most of the way to actually breaking the system.",
+   "match": [
+    "cve",
+    "cvss",
+    "severity score",
+    "severity"
+   ],
+   "attribution": "Tom Leek · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/34260",
+   "confidence": 0.8
+  },
+  {
+   "concept": "default-deny",
+   "text": "In human interactions, default trust is worthwhile for little things. If a stranger comes up to you and asks you for directions, you'll probably stop and spend some time helping them. If they ask you your mother's maiden name, you'd probably think a bit. If they ask you for a list of everyone you've ever met, you'd probably not answer. If a thousand strangers came up in series, all wearing suspicious disguises each asking about one person you would stop answering pretty quickly. You're able to do this because you grow more suspicious/bored with time, and because you're able to use human judgement to recognize patterns.\n\nComputers are valuable precisely because they do repetitive, mundane tasks quickly. Because they can work so quickly, an attacker who can get a computer to do a lot of little things in series, can do far more damage than if they were interacting with a human who would just get bored and/or annoyed.",
+   "match": [
+    "zero trust",
+    "perimeter",
+    "castle and moat",
+    "default",
+    "deny",
+    "zero"
+   ],
+   "attribution": "Mike Samuel · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/7338/is-this-much-distrust-really-necessary#7349",
+   "confidence": 0.8
+  },
+  {
+   "concept": "firewall",
+   "text": "But your questions shows that you're approaching this incorrectly. What you're asking would be like asking if locking your home door is worth the effort since you know that some people have access to bulldozers.",
+   "match": [
+    "firewall",
+    "nat",
+    "port forwarding",
+    "ports"
+   ],
+   "attribution": "Stephane · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/109685/a-destructive-force-can-always-leak-information-through-http-packets-should-i-b#109686",
+   "confidence": 0.75
+  },
+  {
+   "concept": "why encryption uses a small key for large data",
+   "text": "Couple reasons:\n\nEncryption key can be tiny. The encrypted data can be huge. You don’t put your house in your pocket - you put your key in your pocket.\n\nEncrypted keys can be used for more than storage of data - they can be used for authenticated communication for example.",
+   "match": [
+    "size"
+   ],
+   "attribution": "u/OneNoteToRead · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/13ndq47/eli5_if_theres_a_place_thats_genuinely_safe/jkyyaxu/",
+   "confidence": 0.75
+  },
+  {
+   "concept": "ASLR",
+   "text": "ASLR is like an extra password you need to guess. It has a certain amount of entropy and it is usually stable. Unless the vulnerability has a portion that leaks information, ASLR completely mitigates it - or you need a second vulnerability. ASLR can completely mitigate an individual vulnerability, but not possibly an exploit chain.",
+   "match": [
+    "aslr",
+    "address space"
+   ],
+   "attribution": "nicce · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=48141233",
+   "confidence": 0.75
+  },
+  {
+   "concept": "sandboxing",
+   "text": "One thing about the sandbox of Flatpak is that it doesn't seem to be up to the user. If the developer of the app chooses the permissions, then there isn't a fundamental difference for security from having all permissions anyway.\n\nIdeally a user installs the app and knows, without reading anything else about the app, that the app is separate from their system. If any app you install is NOT separate from the system, then the sandbox is like making a giant wall but having a door right in the middle of it.",
+   "match": [
+    "sandbox",
+    "sandboxing",
+    "sandboxed",
+    "permission"
+   ],
+   "attribution": "andagainagain · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=26531355",
+   "confidence": 0.75
+  },
+  {
+   "concept": "encryption adoption",
+   "text": "An analogy to automobile use is suggestive. Cars at first did not include such safety provisions as seat belts or anti-lock brakes. The situation was found to be unsatisfactory -- people were killed or injured who need not have been. Today, we use seat belts, airbags, and anti-lock brake systems, in addition to many chassis design provisions. In this analogy, unencrypted email or instant messaging is very like using automobiles without safety equipment. Please encrypt your messages, before you send them out to the Internet. The people you talk to should do the same, and for the same reasons.",
+   "match": [],
+   "attribution": "Wikibooks contributors (Goldbug) · en.wikibooks.org",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://en.wikibooks.org/wiki/Goldbug",
+   "confidence": 0.75
+  },
+  {
+   "concept": "password hashing",
+   "text": "The password 'chain' isn't really the correct analogy here — a better analogy would be an onion. You can't get to the core (the password) without going through all the layers: pepper, then bcrypt, then the underlying hash. Assume an attacker can brute-force infinitely many bcrypt hashes but can't get the pepper: there's no way such an attacker could recover the passwords, because he can't even obtain the hashes he'd need to brute-force in the first place. Each layer defends against a different capability an attacker might have, and losing any single outer layer doesn't expose the core underneath.",
+   "match": [
+    "hash",
+    "hashing",
+    "hashed",
+    "password hash",
+    "password",
+    "pepper",
+    "salt",
+    "layering"
+   ],
+   "attribution": "SEJPM · crypto.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://crypto.stackexchange.com/a/42416",
+   "confidence": 0.75
+  },
+  {
+   "concept": "firewall",
+   "text": "\"you\" are the doorman of a single room house (out of metaphor, a modem directly connected to a PC). Then, your address is the IPv4 house address. This was quite common back in the days.\n\n\"you\" have an agreement with the doorman, and everything arriving to the house door gets routed to your room, or \"DMZ\". Or maybe all pink envelopes go to you, all cologne-scented envelopes go to your sister, and so on. Say hello to port forwarding.\n\nthe doorman takes notice of whom you send letters to, and any letters coming to the house from an address to which your father sent a letter get rerouted to your father's room. The sender's address is always your house's - you get \"masqueraded\".",
+   "match": [
+    "firewall",
+    "nat",
+    "port forwarding",
+    "ports",
+    "port"
+   ],
+   "attribution": "LSerni · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/185642/how-can-malware-immediately-infect-a-windows-xp-computer-as-soon-as-it-goes-onli#185654",
+   "confidence": 0.75
+  },
+  {
+   "concept": "network authentication",
+   "text": "Yes, because every cell phone have a SIM (Subscriber Identity Module) card. This SIM card holds, among other things, the identity of the user, and identifies him to the operator. This would be more or less analogous to username and password on a WPA2 wireless network. You buy a SIM, you have right to access the operator network, until you stop paying and the company disables your record on their databases, and your SIM cannot connect anymore.\n\nIt's because a public WiFi lacks the central entity responsible for handling out usernames and password, like the telecom company does with a SIM card. To work the same, someone would have to be physically available around the router to register people, giving them usernames and passwords. And that would very much look like a protected WiFi network.",
+   "match": [
+    "wpa2",
+    "sim",
+    "wifi"
+   ],
+   "attribution": "ThoriumBR · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/questions/192969/why-doesnt-public-or-open-wifi-use-unique-encryption-for-each-client-like-gsm#192970",
+   "confidence": 0.75
+  },
+  {
+   "concept": "key exchange without a pre-shared secret",
+   "text": "This may no longer be the case, but this style of encryption was explained to me like this.\n\nImagine you have a message and you want to send it to your mate.\n\nYou have a box with the message inside. You add a padlock to the box and lock it, then send the box to your mate.\n\nYour mate then adds his own padlock to the box and sends the box back to you, now with both locks locking it.\n\nYou remove your padlock from the box and send the box to your mate (now only with their padlock locking the box).\n\nHe removes his lock, opens the box and reads the message \"FU MFER!\"\n\nSo, you've exchanged a message, no one in between was able to intercept it, and neither of you had to give each other sensitive stuff like keys and passwords.\n\nReplace the box with a packet of data (or a frame or whatever the term the network bods are using these days) and the padlocks with encryption and it's sort of the same thing.",
+   "match": [
+    "key exchange"
+   ],
+   "attribution": "u/Flyberius · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/5m473n/eli5how_does_ssl_certificates_work_exactly/dc0upwf/",
+   "confidence": 0.75
+  },
+  {
+   "concept": "hashing",
+   "text": "A password hash is like using a code, except that it is impossible to decode.",
+   "match": [
+    "hash",
+    "hashing",
+    "hashed",
+    "password hash"
+   ],
+   "attribution": "brokethebuildagain · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/63424",
+   "confidence": 0.7
+  },
+  {
+   "concept": "hardware security tokens",
+   "text": "They would not let the key of a physical safe unattended. They should understand that when they are given reasonably secured credentials, they should see it as a physical key and use it the same.",
+   "match": [
+    "security key",
+    "yubikey",
+    "hardware token",
+    "hardware",
+    "tokens"
+   ],
+   "attribution": "Serge Ballesta · security.stackexchange.com",
+   "license": "CC-BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/205211",
+   "confidence": 0.7
+  },
+  {
+   "concept": "DDoS",
+   "text": "A DDoS is more like the Russians sending a million man army to go stand in line at the local DMV. They deny normal customers the service, they do not kill them. Denying access and killing are two very different things.",
+   "match": [
+    "ddos",
+    "dos",
+    "denial of service",
+    "botnet"
+   ],
+   "attribution": "16s · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=5448695",
+   "confidence": 0.7
+  },
+  {
+   "concept": "why not to roll your own crypto",
+   "text": "If I can use an analogy: I wouldn't try to perform surgery on myself; I'd go to a qualified surgeon. Cryptosystem design is the same. Folks who try to invent their own schemes without knowledge of the field often make non-obvious mistakes — the kind that aren't visible until someone with real cryptographic expertise looks closely, by which point a breach may already have happened. If security matters for your application, you should do the same as you would for surgery: rely on an established, heavily-reviewed method instead of inventing your own.",
+   "match": [
+    "roll your own",
+    "custom crypto",
+    "homemade crypto",
+    "roll"
+   ],
+   "attribution": "D.W. · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/5567",
+   "confidence": 0.7
+  },
+  {
+   "concept": "ASLR vs security-through-obscurity",
+   "text": "Security through obscurity is when you run your sshd server on port 1337 instead of 22 without actually securing the server settings down, because you don't think the hackers know how to portscan that high. Everyone runs on 22, but you obscurely run it elsewhere. \"Nobody will think to look.\"\n\nASLR is nothing like that. It's not that nobody thinks to look, it's that they have no stable gadgets to jump to. The only way to get around that is to leak the mapping or work with the handful of gadgets that are stable. It's analogous to shuffling a deck of cards before and after every hand to protect against card counters.",
+   "match": [
+    "aslr",
+    "address space",
+    "through",
+    "obscurity"
+   ],
+   "attribution": "nickysielicki · news.ycombinator.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://news.ycombinator.com/item?id=43409088",
+   "confidence": 0.7
+  },
+  {
+   "concept": "honeypot",
+   "text": "Here's an analogy based on a house. You have a house (server) on a street. That house has three doors (ports), which lead to different places (services). Just because you have doors doesn't mean someone is going to walk in and steal your jewelry: not all services behind those doors are vulnerable, and even a vulnerable one isn't necessarily exploitable. Having a door is a 'vulnerability', but a door that leads only to another locked door in a foyer removes the exploitability of a thief actually reaching your jewelry — and if a thief does get through the outer door, they find themselves trapped in that foyer, staring down a vicious dog. That foyer-with-a-dog is a honeypot: a contained, monitored environment where an intruder who gets past your outer defenses is observed, but never actually reaches anything of value.",
+   "match": [
+    "honeypot",
+    "decoy",
+    "ports"
+   ],
+   "attribution": "munkeyoto · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/73497",
+   "confidence": 0.7
+  },
+  {
+   "concept": "port scanning",
+   "text": "Writing an article about how to carry out a specific attack against a specific system is analogous to being caught carrying a flick knife or lock picks: they have a specific use, and are mostly associated with committing crimes, even though someone might have a legitimate reason to own them. If you wrote an article titled 'The steps you need to bypass Company X's security measures and access their secret database', you'd almost certainly be breaking the law. But an article that merely explains how a general tool like nmap works, without targeting anyone in particular, is more like publishing a locksmithing manual than handing someone a specific set of picks for a specific lock — and that distinction is what tends to separate protected knowledge-sharing from a criminal act under laws like the UK's Computer Misuse Act.",
+   "match": [
+    "port scan",
+    "port scanning",
+    "nmap",
+    "port",
+    "scanning",
+    "dual",
+    "use",
+    "technique"
+   ],
+   "attribution": "webtoe · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/13474",
+   "confidence": 0.7
+  },
+  {
+   "concept": "network segmentation",
+   "text": "The model most people use — running several VMs on one host — is like putting a set of smaller boxes (the VMs) inside a single big box (the host system): all the VMs go through the host system to reach any device (network, USB, disk), and that host system controls the VMs, the devices, and the user interface, while also facing the internet directly. Qubes' idea is different: instead of storing small boxes inside one overpowered big box, it configures the small boxes into a kind of virtual local network, so together they look like a big box to the user without ever actually being one. From an attacker's point of view the difference is stark: to compromise the single-host model, you only need to exploit the one host facing the network, and you get everything. To compromise Qubes, you have no choice but to start from an isolated guest — since neither the hypervisor nor the main management domain has any direct link to the outside world — and then find a way to escalate from that one compartment into the others.",
+   "match": [
+    "segmentation",
+    "micro segmentation"
+   ],
+   "attribution": "WhiteWinterWolf · security.stackexchange.com",
+   "license": "CC BY-SA 4.0",
+   "url": "https://security.stackexchange.com/a/128371",
+   "confidence": 0.7
+  },
+  {
+   "concept": "SQL injection",
+   "text": "Back door access is just a way of saying \"not-expected\" access. Sometimes it's still done through the front door, and sometimes it's through a window.\n\nSomething like the front door would be if your mom told you that you could have one glass of coke, and you went and got the big glass flower vase, and poured six cokes into it. By following the rules in an unexpected way, you've tricked the machine. When mom asks you later how many glasses of coke you had, you can truthfully answer \"one.\" This is a bit like an SQL injection: instead of answering \"1 + 5 + 8 = __\" with \"14\", you might answer with \"14 & OUTPUT_FINAL_ANSWER_LIST.\" Since it has no spaces and starts with numbers, it might satisfy the rules.\n\nAnother way would be if your mom said you could invite some friends over to play. After the 5th friend walks in, your mom declares, \"That's it, not another kid walks through that door!\" If you open a window and let Johnny climb in with his crayons, technically you didn't break the rules, AND when you and your five friends go downstairs for homework, Johnny can color all over the walls without someone suspecting he's there. This is like making a new login and using it to give another account administrative rights.\n\nWhat's also important to remember is this goes very smoothly when someone lives in the house already, but becomes much harder when you're trying to get into a stranger's house. Getting inside is a major step.",
+   "match": [
+    "sqli",
+    "sql injection",
+    "injection",
+    "sql",
+    "rule",
+    "bypass",
+    "exploits",
+    "trick"
+   ],
+   "attribution": "u/thargoallmysecrets · reddit.com",
+   "license": "research-quotation-noncommercial",
+   "url": "https://www.reddit.com/r/explainlikeimfive/comments/4702vu/eli5_how_do_hackers_findgain_backdoor_access_to/d098ay7/",
+   "confidence": 0.7
+  },
+  {
+   "concept": "Lateral movement",
+   "text": "Attackers spend a great deal of time on lateral movement during a breach - as they surf a network, attempting to find the 'trophies' they are after - and networks with little or no control over this movement provide an easy pathway for an attacker to their intended target. This means that once an adversary enters a network through a beachhead, a weak or insecure target used as a launching point (be it an endpoint, a workload, a server, etc.), they act as a burglar in a building where all the doors are open, calmly moving from room to room, picking up anything of value.",
+   "match": [
+    "lateral movement",
+    "lateral",
+    "micro segmentation",
+    "east west"
+   ],
+   "attribution": "Bishop Fox · Efficacy of Micro-Segmentation, research report for Illumio, 2020",
+   "license": null,
+   "url": null,
+   "confidence": 1.0
+  },
+  {
+   "concept": "Heartbleed",
+   "text": "It resulted from improper input validation (due to a missing bounds check) in the implementation of the TLS heartbeat extension. The vulnerability was classified as a buffer over-read, a situation where more data can be read than should be allowed.",
+   "match": [
+    "heartbleed",
+    "openssl"
+   ],
+   "attribution": "Wikipedia editors · Heartbleed · CC BY-SA",
+   "license": null,
+   "url": "https://en.wikipedia.org/wiki/Heartbleed",
+   "confidence": 1.0
+  },
+  {
+   "concept": "Log4Shell",
+   "text": "The vulnerability takes advantage of Log4j allowing requests to arbitrary LDAP and JNDI servers, allowing attackers to execute arbitrary Java code on a server or other computer, or leak sensitive information.",
+   "match": [
+    "log4shell",
+    "log4j",
+    "jndi"
+   ],
+   "attribution": "Wikipedia editors · Log4Shell · CC BY-SA",
+   "license": null,
+   "url": "https://en.wikipedia.org/wiki/Log4Shell",
+   "confidence": 1.0
+  }
+ ]
+}

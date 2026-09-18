@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEGIBLE — triage de pares</title>
+<style>
+/* ============================================================
+   LEGIBLE — triage viewer. Hereda "The Translator's Instrument":
+   luz de investigación, cobalto como señal, rust = mundo técnico,
+   estado (ok/warn/bad) reservado a veredictos de par.
+   ============================================================ */
+:root{
+  --bg:#F6F8FB; --bg2:#EFF2F7; --surface:#FFFFFF; --surface2:#ECEFF5;
+  --ink:#10151D; --ink2:#3A4250; --muted:#5B6472;
+  --line:#E3E7EE; --line2:#D2D8E2;
+  --accent:#2A5BFF; --accent-ink:#1F49D6;
+  --accent-soft:rgba(42,91,255,.09); --accent-line:rgba(42,91,255,.30);
+  --tech:#CF6F4E; --tech-ink:#B0532F;
+  --tech-soft:rgba(207,111,78,.07); --tech-line:rgba(207,111,78,.30);
+  --ok-ink:#1B7A54; --ok-soft:rgba(46,182,125,.13);
+  --warn-ink:#8A6A1F; --warn-soft:rgba(226,178,72,.18);
+  --bad-ink:#B0392E; --bad-soft:rgba(205,72,58,.11);
+  --r-card:14px; --r-sm:10px;
+  --shadow:0 1px 2px rgba(20,28,46,.05),0 12px 32px -16px rgba(24,42,92,.12);
+  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.55;
+}
+::selection{background:var(--accent-soft)}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* ---------- cabecera ---------- */
+header.masthead{padding:44px 0 0}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);
+}
+.eyebrow b{color:var(--accent-ink);font-weight:600}
+h1{
+  margin:10px 0 6px;font-size:clamp(26px,4vw,34px);font-weight:650;
+  letter-spacing:-.02em;line-height:1.15;text-wrap:balance;
+}
+.lede{max-width:62ch;color:var(--ink2);margin:0 0 26px}
+.lede .mini{color:var(--muted);font-size:13px;display:block;margin-top:6px}
+
+/* ---------- pestañas-contador ---------- */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.tab{
+  text-align:left;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-card);padding:16px 18px 14px;box-shadow:var(--shadow);
+  transition:border-color .18s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+}
+.tab::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform .22s cubic-bezier(.22,1,.36,1);
+}
+.tab[aria-selected="true"]{border-color:var(--accent-line)}
+.tab[aria-selected="true"]::after{transform:scaleX(1)}
+.tab .k{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+}
+.tab .n{
+  font-size:30px;font-weight:650;letter-spacing:-.02em;line-height:1.1;
+  font-variant-numeric:tabular-nums;margin:4px 0 2px;
+}
+.tab[aria-selected="true"] .n{color:var(--accent-ink)}
+.tab .d{font-size:12.5px;color:var(--muted)}
+
+/* ---------- toolbar ---------- */
+.toolbar{
+  position:sticky;top:0;z-index:30;background:var(--bg);
+  padding:10px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px;
+}
+.toolrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type="search"]{
+  flex:1 1 220px;min-width:180px;
+  font:inherit;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line2);border-radius:var(--r-sm);padding:7px 12px;
+}
+input[type="search"]::placeholder{color:var(--muted)}
+input[type="search"]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+select{
+  font:inherit;font-size:13px;color:var(--ink2);background:var(--surface);
+  border:1px solid var(--line2);border-radius:999px;padding:5px 10px;
+}
+.chip{
+  font-size:13px;color:var(--ink2);background:var(--surface);
+  border:1px solid var(--line2);border-radius:999px;padding:4.5px 12px;
+  transition:border-color .15s,background .15s;white-space:nowrap;
+}
+.chip:hover{border-color:var(--accent-line)}
+.chip[aria-pressed="true"]{
+  background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent-ink);font-weight:600;
+}
+.chip .c{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:400}
+.chip[aria-pressed="true"] .c{color:var(--accent-ink)}
+.result{
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);
+  margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+
+/* ---------- tarjetas ---------- */
+.list{display:flex;flex-direction:column;gap:12px;padding-bottom:40px}
+.card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-card);box-shadow:var(--shadow);overflow:hidden;
+}
+.card-head{
+  display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;
+  padding:10px 16px;border-bottom:1px solid var(--line);
+}
+.pid{font-family:var(--mono);font-size:11.5px;color:var(--muted);word-break:break-all}
+.badge{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:999px;padding:2.5px 9px;font-weight:600;
+}
+.b-ok{background:var(--ok-soft);color:var(--ok-ink)}
+.b-warn{background:var(--warn-soft);color:var(--warn-ink)}
+.b-bad{background:var(--bad-soft);color:var(--bad-ink)}
+.b-mut{background:var(--surface2);color:var(--muted);font-weight:500}
+.b-pen{background:var(--accent-soft);color:var(--accent-ink)}
+.conf{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+.rtitle{
+  padding:8px 16px 0;font-size:12.5px;color:var(--muted);
+  font-style:normal;
+}
+.duo{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:720px){.duo{grid-template-columns:1fr}.tabs{grid-template-columns:1fr}}
+.pane{padding:12px 16px 14px;min-width:0}
+.pane-t{
+  background:var(--tech-soft);border-right:1px solid var(--tech-line);
+  font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--ink2);
+}
+@media(max-width:720px){.pane-t{border-right:0;border-bottom:1px solid var(--tech-line)}}
+.pane-e{font-size:14px;color:var(--ink)}
+.pane .lab{
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  margin-bottom:7px;font-weight:600;
+}
+.pane-t .lab{color:var(--tech-ink)}
+.pane-e .lab{color:var(--accent-ink)}
+.txt{white-space:pre-line;overflow-wrap:break-word}
+.clamp .txt{display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.more{
+  display:block;margin:8px 16px 12px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);
+}
+.single{padding:13px 16px 15px}
+.concept{
+  display:inline-block;font-size:12px;background:var(--surface2);color:var(--ink2);
+  border-radius:999px;padding:2px 10px;margin-bottom:8px;
+}
+.src{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:9px}
+.vote{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding:0 16px 12px}
+
+/* ---------- carga incremental / footer ---------- */
+.sentinel{height:1px}
+.loadmore{
+  align-self:center;font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:var(--accent-ink);border:1px solid var(--accent-line);border-radius:999px;
+  padding:8px 20px;background:var(--surface);margin:6px 0 10px;
+}
+.empty{
+  text-align:center;color:var(--muted);padding:60px 0;font-size:14px;
+}
+footer{
+  border-top:1px solid var(--line);color:var(--muted);font-size:12px;
+  padding:18px 0 46px;line-height:1.7;
+}
+footer code{font-family:var(--mono);font-size:11px;background:var(--surface2);padding:1px 5px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){
+  .tab,.tab::after,.chip{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow"><b>LEGIBLE</b> · inventario de pares · corte 2026-07-12</div>
+    <h1>Triage del dataset</h1>
+    <p class="lede">Los tres montones sobre la mesa: los pares revisados (core 1:1 + board verificados), la cosecha de registros ya juzgada (analogías, definiciones, público — filtra por borderline/drop para adjudicar), y el resto del v0.2 que quedó fuera del core.
+    <span class="mini">Todo local — nada de esto se ha publicado. Los pares del «resto» siguen dentro del dataset v0.2; «fuera del core» significa no seleccionados para el subset curado 1:1.</span></p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Secciones">
+    <button class="tab" role="tab" id="tab-rev" aria-selected="true" data-sec="rev">
+      <span class="k">Revisados</span>
+      <span class="n">__N_REV__</span>
+      <span class="d">573 core 1:1 + 333 board verificados</span>
+    </button>
+    <button class="tab" role="tab" id="tab-jz" aria-selected="false" data-sec="jz">
+      <span class="k">Cosecha juzgada</span>
+      <span class="n">__N_JZ__</span>
+      <span class="d">analogías · definiciones · público — veredicto del judge</span>
+    </button>
+    <button class="tab" role="tab" id="tab-rest" aria-selected="false" data-sec="rest">
+      <span class="k">Resto v0.2 · fuera del core</span>
+      <span class="n">__N_REST__</span>
+      <span class="d">en el dataset, no seleccionados para el core 1:1</span>
+    </button>
+  </div>
+
+  <div class="toolbar">
+    <div class="toolrow">
+      <input type="search" id="q" placeholder="Buscar en id, texto, título, fuente…" aria-label="Buscar">
+      <span id="chips" style="display:contents"></span>
+      <span class="result" id="result"></span>
+    </div>
+  </div>
+
+  <div class="list" id="list" role="list"></div>
+  <button class="loadmore" id="loadmore" hidden>Cargar más</button>
+  <div class="sentinel" id="sentinel"></div>
+
+  <footer>
+    <strong>Fuentes.</strong>
+    Revisados: <code>core_1to1_curated.jsonl</code> (573) + board ola 1 (<code>board_verified.jsonl</code>, 265, voto GPT-5-mini + Gemini) + board ola 2 (<code>board_verified_2.jsonl</code>, 68, subagente Claude).
+    Cosecha juzgada: <code>pa_judged.jsonl</code> (370) + <code>wave2_judged.jsonl</code> (388), judges Claude Sonnet 2026-07-12 con cross-check API. Filtra borderline/drop para adjudicar (la pila también está en <code>pa_adjudication_pile.jsonl</code>).
+    Resto: <code>legible-pairs-v0.2.jsonl</code> menos los 573 pair_id del core. Textos largos truncados con «…»; en el resto, recorte a ~240 caracteres por lado.
+  </footer>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const $ = id => document.getElementById(id);
+const list = $("list"), chipsBox = $("chips"), result = $("result"),
+      loadBtn = $("loadmore"), sentinel = $("sentinel"), qInput = $("q");
+const CHUNK = 60;
+const fmt = n => n.toLocaleString("es-ES");
+const esc = s => (s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const state = { sec:"rev", q:"", grp:"all", lbl:"all", org:"all" };
+let filtered = [], shown = 0;
+
+/* -------- definición de filtros por sección -------- */
+const GRP_LABELS = {
+  core:"Core 1:1", board:"Board", exemplar:"Exemplars", analogy:"Analogías",
+  definition:"Definiciones", explanation:"Explicaciones", public:"Público"
+};
+const LBL_ORDER = ["aligned","partial","unaligned","keep","borderline","drop"];
+
+function secItems(){ return DATA.filter(x => x.sec === state.sec); }
+
+function buildChips(){
+  chipsBox.innerHTML = "";
+  const items = secItems();
+
+  if(state.sec === "rev" || state.sec === "jz"){
+    const grps = {};
+    items.forEach(x => grps[x.grp] = (grps[x.grp]||0)+1);
+    addChipGroup("grp", [["all","Todos",items.length],
+      ...Object.keys(grps).map(g => [g, GRP_LABELS[g]||g, grps[g]])]);
+  }
+  if(state.sec === "rev" || state.sec === "jz" || state.sec === "rest"){
+    const lbls = {};
+    items.forEach(x => { if(x.lbl) lbls[x.lbl] = (lbls[x.lbl]||0)+1; });
+    addChipGroup("lbl", [["all","Veredicto: todos",null],
+      ...LBL_ORDER.filter(l => lbls[l]).map(l => [l, l, lbls[l]])]);
+  }
+  if(state.sec === "rest"){
+    const orgs = {};
+    items.forEach(x => orgs[x.org] = (orgs[x.org]||0)+1);
+    const top = Object.entries(orgs).sort((a,b)=>b[1]-a[1]);
+    const sel = document.createElement("select");
+    sel.setAttribute("aria-label","Filtrar por organización");
+    sel.innerHTML = '<option value="all">Org: todas</option>' +
+      top.map(([o,n]) => `<option value="${esc(o)}"${state.org===o?" selected":""}>${esc(o)} (${fmt(n)})</option>`).join("");
+    sel.onchange = () => { state.org = sel.value; refresh(); };
+    chipsBox.appendChild(sel);
+  }
+}
+
+function addChipGroup(key, defs){
+  defs.forEach(([val,label,count]) => {
+    const b = document.createElement("button");
+    b.className = "chip";
+    b.setAttribute("aria-pressed", String(state[key] === val));
+    b.innerHTML = esc(label) + (count!=null ? ` <span class="c">${fmt(count)}</span>` : "");
+    b.onclick = () => { state[key] = val; refresh(); };
+    chipsBox.appendChild(b);
+  });
+}
+
+/* -------- filtrado -------- */
+function applyFilter(){
+  const q = state.q.trim().toLowerCase();
+  filtered = secItems().filter(x =>
+    (state.grp === "all" || x.grp === state.grp) &&
+    (state.lbl === "all" || x.lbl === state.lbl) &&
+    (state.org === "all" || x.org === state.org) &&
+    (!q || x.q.includes(q))
+  );
+}
+
+/* -------- render -------- */
+function badgeFor(lbl){
+  if(lbl === "aligned")   return '<span class="badge b-ok">aligned</span>';
+  if(lbl === "partial")   return '<span class="badge b-warn">partial</span>';
+  if(lbl === "unaligned") return '<span class="badge b-bad">unaligned</span>';
+  if(lbl === "keep")       return '<span class="badge b-ok">keep</span>';
+  if(lbl === "borderline") return '<span class="badge b-warn">borderline</span>';
+  if(lbl === "drop")       return '<span class="badge b-bad">drop</span>';
+  return '<span class="badge b-pen">pendiente</span>';
+}
+
+function card(x, idx){
+  const chips = [badgeFor(x.lbl)];
+  chips.push(`<span class="badge b-mut">${esc(x.org)}</span>`);
+  if(x.year)  chips.push(`<span class="badge b-mut">${x.year}</span>`);
+  if(x.sev)   chips.push(`<span class="badge b-mut">${esc(x.sev)}</span>`);
+  if(x.split) chips.push(`<span class="badge b-mut">${esc(x.split)}</span>`);
+  if(x.grp==="core") chips.push('<span class="badge b-mut">core 1:1</span>');
+  if(x.agency) chips.push(`<span class="badge b-mut">${esc(x.agency)}</span>`);
+  const conf = x.conf != null ? `<span class="conf">conf ${Number(x.conf).toFixed(2)}</span>` : "";
+
+  /* cosecha juzgada: una sola columna con veredicto + razón */
+  if(x.sec === "jz"){
+    return `<div class="card" role="listitem">
+      <div class="card-head">${badgeFor(x.lbl)}
+        <span class="badge b-mut">${esc(GRP_LABELS[x.grp]||x.grp)}</span>
+        <span class="badge b-mut">${esc(x.org)}</span>
+        ${x.score!=null?`<span class="badge b-mut">▲ ${x.score}</span>`:""}
+        ${conf}</div>
+      <div class="single">
+        ${x.concept?`<span class="concept">${esc(x.concept)}</span>`:""}
+        <div class="txt">${esc(x.e)}</div>
+        ${x.jreason?`<div class="src">judge: ${esc(x.jreason)}</div>`:""}
+        ${x.url?`<div class="src"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url)}</a></div>`:""}
+      </div>
+    </div>`;
+  }
+
+  const long = (x.t||"").length + (x.e||"").length > 900;
+  return `<div class="card ${long?"clamp":""}" role="listitem" data-i="${idx}">
+    <div class="card-head">${x.id?`<span class="pid">${esc(x.id)}</span>`:""}${chips.join("")}${conf}</div>
+    ${x.title?`<div class="rtitle">${esc(x.title)}</div>`:""}
+    <div class="duo">
+      <div class="pane pane-t"><div class="lab">Técnico</div><div class="txt">${esc(x.t)}</div></div>
+      <div class="pane pane-e"><div class="lab">${x.grp==="board"?"Board":"Ejecutivo"}</div><div class="txt">${esc(x.e)}</div></div>
+    </div>
+    ${x.vote?`<div class="vote">voto: ${esc(x.vote)}</div>`:""}
+    ${long?'<button class="more" data-toggle>Ver completo</button>':""}
+  </div>`;
+}
+
+function renderChunk(){
+  const next = filtered.slice(shown, shown + CHUNK);
+  if(next.length){
+    const div = document.createElement("div");
+    div.style.display = "contents";
+    div.innerHTML = next.map((x,i) => card(x, shown+i)).join("");
+    list.appendChild(div);
+    shown += next.length;
+  }
+  loadBtn.hidden = shown >= filtered.length;
+  result.textContent = `${fmt(Math.min(shown, filtered.length))} / ${fmt(filtered.length)}`;
+  if(!filtered.length){
+    list.innerHTML = '<div class="empty">Nada coincide con el filtro.</div>';
+  }
+}
+
+function refresh(){
+  applyFilter();
+  buildChips();
+  list.innerHTML = "";
+  shown = 0;
+  renderChunk();
+  result.textContent = `${fmt(Math.min(shown, filtered.length))} / ${fmt(filtered.length)}`;
+}
+
+/* -------- eventos -------- */
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => {
+  state.sec = t.dataset.sec;
+  state.grp = state.lbl = state.org = "all";
+  document.querySelectorAll(".tab").forEach(x =>
+    x.setAttribute("aria-selected", String(x === t)));
+  refresh();
+  window.scrollTo({top:0, behavior:"auto"});
+});
+
+let deb;
+qInput.addEventListener("input", () => {
+  clearTimeout(deb);
+  deb = setTimeout(() => { state.q = qInput.value; refresh(); }, 180);
+});
+
+loadBtn.onclick = renderChunk;
+new IntersectionObserver(es => {
+  if(es[0].isIntersecting && shown < filtered.length) renderChunk();
+}, {rootMargin:"600px"}).observe(sentinel);
+
+list.addEventListener("click", e => {
+  const btn = e.target.closest("[data-toggle]");
+  if(!btn) return;
+  const c = btn.closest(".card");
+  const open = c.classList.toggle("clamp");
+  btn.textContent = open ? "Ver completo" : "Plegar";
+});
+
+refresh();
+</script>
+</body>
+</html>

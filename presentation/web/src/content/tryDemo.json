@@ -1,0 +1,307 @@
+{
+ "generated_by": "scripts/gen_try_demo.py",
+ "note": "all technical/executive strings verbatim from legible-pairs-v0.3.jsonl; […] marks elision",
+ "translate": [
+  {
+   "key": "executive",
+   "audience_label": "Executive sponsor",
+   "audience_blurb": "engagement outcome, severity in plain words",
+   "finding_label": "Rent-drain in a Solana gateway",
+   "org": "trailofbits",
+   "year": "2025",
+   "severity": "High",
+   "source_url": null,
+   "source": "Severity: High. Finding ID: TOB-ZETASOLANA-1. The associated token account that withdraw_spl_token creates is reimbursed with rent from a payer account, but the funds recipient can close that account and reclaim the rent, repeatedly, to siphon funds from ZetaChain. In our experiments, the rent claimed was 2,039,280 lamports, slightly less than 1 USD. If an attacker could perform this attack once per block, at 0.4 seconds per block, the attacker would siphon about 216,000 USD per day.",
+   "translation": "We identified one high-severity issue that could allow an attacker to drain the rent account (TOB-ZETASOLANA-1).",
+   "omitted": [
+    "the measured rent reclaimed in testing: 2,039,280 lamports (about 1 USD)",
+    "the repeated once-per-block attack scenario: if an attacker could perform this attack once per block, the projected loss is about 216,000 USD per day (0.4 seconds per block)"
+   ],
+   "attribution": "Trail of Bits · ZetaChain security review, 2025"
+  },
+  {
+   "key": "board",
+   "audience_label": "Board of directors",
+   "audience_blurb": "the failed control and its consequence",
+   "finding_label": "Consumer key, enterprise doors",
+   "org": "CSRB",
+   "year": "2023",
+   "severity": null,
+   "source_url": "https://www.cisa.gov/sites/default/files/2025-03/CSRBReviewOfTheSummer2023MEOIntrusion508.pdf",
+   "source": "The flaw was caused by Microsoft’s efforts to address customer requests for a common OpenID Connect (OIDC) endpoint service that listed active signing keys for both enterprise and consumer identity systems.78However, Microsoft had not adequately updated the software development kits (SDKs), which Microsoft and its partners both used, to differentiate between the consumer MSA and the enterprise signing keys within the common endpoint. As a result, this allowed successful authentication to the Entra system for certain applications, such as mail, regardless of which key was used.",
+   "translation": "Further, if Microsoft had not made the error that allowed consumer keys to authenticate to enterprise customer data (or, alternatively, if it had detected and addressed this flaw), the scope of the intrusion would have been far narrower and would not have impacted the State Department, Commerce Department, or any other enterprise customers.",
+   "omitted": [],
+   "attribution": "Cyber Safety Review Board · Storm-0558 review, 2023"
+  },
+  {
+   "key": "customer",
+   "audience_label": "Customer notice",
+   "audience_blurb": "bounded assurance: what was and was not touched",
+   "finding_label": "Thanksgiving 2023 intrusion",
+   "org": "cloudflare",
+   "year": "2023",
+   "severity": null,
+   "source_url": null,
+   "source": "They attempted to log into our Okta instance and were denied access. They attempted access to the Cloudflare Dashboard and were denied access.\nAdditionally, the threat actor accessed an AWS environment that is used to power the Cloudflare Apps marketplace. This environment was segmented with no access to global network or customer data. The service account to access this environment was revoked, and we validated the integrity of the environment.",
+   "translation": "To be clear, we saw no evidence whatsoever that the threat actor got access to our global network, data centers, SSL keys, customer databases or configuration information, Cloudflare Workers deployed by us or customers, AI models, network infrastructure, or any of our datastores like Workers KV, R2 or Quicksilver.",
+   "omitted": [],
+   "attribution": "Cloudflare · Thanksgiving 2023 incident report"
+  },
+  {
+   "key": "regulator",
+   "audience_label": "Regulator",
+   "audience_blurb": "the failure and the harm, on the record",
+   "finding_label": "Credentials in GitHub repos",
+   "org": "ftc",
+   "year": "2022",
+   "severity": null,
+   "source_url": null,
+   "source": "Drizly failed to use reasonable information security practices to protect consumers' personal information. Among other things, Drizly failed to:\n\nSecurely store AWS and database login credentials, by including them in GitHub repositories, and failed to use readily available measures to scan these repositories for unsecured credentials (such as usernames, passwords, API keys, secure access tokens, and asymmetric private keys);\n\n[…] Prevent data loss by monitoring for unauthorized attempts to transfer or exfiltrate consumers' personal information outside the company's network boundaries;",
+   "translation": "Drizly's failures, as described in Paragraph 13, led to a breach in or around July 2020 of its production environment, and the exfiltration of the personal information of 2.5 million consumers.",
+   "omitted": [],
+   "attribution": "FTC · In the Matter of Drizly, complaint, 2022"
+  },
+  {
+   "key": "developer",
+   "audience_label": "Developer",
+   "audience_blurb": "affected surface, conditions, concrete impact",
+   "finding_label": "Template sandbox escape",
+   "org": "GHSA",
+   "year": "2023",
+   "severity": "High",
+   "source_url": "https://github.com/advisories/GHSA-wg6p-jmpc-xjmr",
+   "source": "The Backstage scaffolder-backend plugin uses a templating library that requires a sandbox, as it by design allows for code injection. The library used for this sandbox so far has been vm2, but in light of several past vulnerabilities and existing vulnerabilities that may not have a fix, the plugin has switched to using a different sandbox library.",
+   "translation": "A malicious actor with write access to a registered scaffolder template could manipulate the template in a way that allows for remote code execution on the scaffolder-backend instance. This was only exploitable in the template YAML definition itself and not by user input data.",
+   "omitted": [],
+   "attribution": "Backstage maintainers · GHSA-wg6p-jmpc-xjmr, 2023"
+  }
+ ],
+ "review": [
+  {
+   "key": "faithful",
+   "label": "faithful",
+   "note": "the pair's real, verified executive_text",
+   "source": "Severity: High. Finding ID: TOB-ZETASOLANA-1. The associated token account that withdraw_spl_token creates is reimbursed with rent from a payer account, but the funds recipient can close that account and reclaim the rent, repeatedly, to siphon funds from ZetaChain. In our experiments, the rent claimed was 2,039,280 lamports, slightly less than 1 USD. If an attacker could perform this attack once per block, at 0.4 seconds per block, the attacker would siphon about 216,000 USD per day.",
+   "draft": "We identified one high-severity issue that could allow an attacker to drain the rent account (TOB-ZETASOLANA-1).",
+   "omitted": [
+    "the measured rent reclaimed in testing: 2,039,280 lamports (about 1 USD)",
+    "the repeated once-per-block attack scenario: if an attacker could perform this attack once per block, the projected loss is about 216,000 USD per day (0.4 seconds per block)"
+   ]
+  },
+  {
+   "key": "softened",
+   "label": "softened",
+   "note": "hand-written: severity understated, precondition dropped",
+   "source": "Severity: High. Finding ID: TOB-ZETASOLANA-1. The associated token account that withdraw_spl_token creates is reimbursed with rent from a payer account, but the funds recipient can close that account and reclaim the rent, repeatedly, to siphon funds from ZetaChain. In our experiments, the rent claimed was 2,039,280 lamports, slightly less than 1 USD. If an attacker could perform this attack once per block, at 0.4 seconds per block, the attacker would siphon about 216,000 USD per day.",
+   "draft": "A moderate-severity flow issue (TOB-ZETASOLANA-1): testing reclaimed 2,039,280 lamports; the rate works out to about 216,000 USD across 24 hours, at a 0.4-second interval.",
+   "omitted": []
+  },
+  {
+   "key": "embellished",
+   "label": "embellished",
+   "note": "hand-written: invented version number, dropped test figure",
+   "source": "Severity: High. Finding ID: TOB-ZETASOLANA-1. The associated token account that withdraw_spl_token creates is reimbursed with rent from a payer account, but the funds recipient can close that account and reclaim the rent, repeatedly, to siphon funds from ZetaChain. In our experiments, the rent claimed was 2,039,280 lamports, slightly less than 1 USD. If an attacker could perform this attack once per block, at 0.4 seconds per block, the attacker would siphon about 216,000 USD per day.",
+   "draft": "We identified a high-severity issue (TOB-ZETASOLANA-1) in bridge program v1.4.2: an attacker could repeat the withdrawal once per block to drain the rent-reimbursement account, siphoning roughly 216,000 USD per day.",
+   "omitted": []
+  }
+ ],
+ "explain": [
+  {
+   "key": "lateral",
+   "label": "Lateral movement",
+   "mech_meta": "Bishop Fox · attack simulations against micro-segmentation, 2020",
+   "mech": "The assessment team observed that for a 100 workloads environment, it would respectively take an attacker 300% (Use Case 1), 450% (Use Case 2), and 950% (Use Case 3) more time to obtain the crown jewels, compared to the control environment (flat network scenario).\n[…] In short, the tighter the micro-segmentation policy (from control to Use Case 1 to Use Case 2 to Use Case 3), the higher the 'tax' on the adversary as they attempt to move laterally.",
+   "rendering": "Attackers spend a great deal of time on lateral movement during a breach - as they surf a network, attempting to find the 'trophies' they are after - and networks with little or no control over this movement provide an easy pathway for an attacker to their intended target. This means that once an adversary enters a network through a beachhead, a weak or insecure target used as a launching point (be it an endpoint, a workload, a server, etc.), they act as a burglar in a building where all the doors are open, calmly moving from room to room, picking up anything of value.",
+   "highlight": "a burglar in a building where all the doors are open",
+   "attribution": "Bishop Fox · Efficacy of Micro-Segmentation, research report for Illumio, 2020",
+   "url": null
+  },
+  {
+   "key": "heartbleed",
+   "label": "Heartbleed",
+   "mech_meta": "OpenSSL heartbeat extension · CVE-2014-0160",
+   "mech": "The RFC 6520 Heartbeat Extension tests TLS/DTLS secure communication links by allowing a computer at one end of a connection to send a Heartbeat Request message, consisting of a payload, typically a text string, along with the payload's length as a 16-bit integer. The receiving computer then must send exactly the same payload back to the sender.\nThe affected versions of OpenSSL allocate a memory buffer for the message to be returned based on the length field in the requesting message, without regard to the actual size of that message's payload. Because of this failure to do proper bounds checking, the message returned consists of the payload, possibly followed by whatever else happened to be in the allocated memory buffer.",
+   "rendering": "It resulted from improper input validation (due to a missing bounds check) in the implementation of the TLS heartbeat extension. The vulnerability was classified as a buffer over-read, a situation where more data can be read than should be allowed.",
+   "highlight": "more data can be read than should be allowed",
+   "attribution": "Wikipedia editors · Heartbleed · CC BY-SA",
+   "url": "https://en.wikipedia.org/wiki/Heartbleed"
+  },
+  {
+   "key": "log4shell",
+   "label": "Log4Shell",
+   "mech_meta": "Log4j 2 JNDI lookups · CVE-2021-44228",
+   "mech": "The Java Naming and Directory Interface (JNDI) allows for lookup of Java objects at program runtime given a path to their data. JNDI can use several directory interfaces, each providing a different scheme of looking up files. Among these interfaces is the Lightweight Directory Access Protocol (LDAP), a non-Java-specific protocol which retrieves the object data as a URL from an appropriate server, either local or anywhere on the Internet.\n[…] In the default configuration, when logging a string, Log4j 2 performs string substitution on expressions of the form ${prefix:name}. For example, Text: ${java:version} might be converted to Text: Java version 1.7.0_67. Among the recognized expressions is ${jndi:<lookup>}; by specifying the lookup to be through LDAP, an arbitrary URL may be queried and loaded as Java object data.",
+   "rendering": "The vulnerability takes advantage of Log4j allowing requests to arbitrary LDAP and JNDI servers, allowing attackers to execute arbitrary Java code on a server or other computer, or leak sensitive information.",
+   "highlight": "execute arbitrary Java code",
+   "attribution": "Wikipedia editors · Log4Shell · CC BY-SA",
+   "url": "https://en.wikipedia.org/wiki/Log4Shell"
+  }
+ ],
+ "precedents": [
+  {
+   "id": "CSRB-8ba4cb3e4b",
+   "org": "CSRB",
+   "year": "2023",
+   "severity": null,
+   "audience": "board",
+   "audience_label": "Board",
+   "tech": "Initially, the consumer MSA system had no process for automated signing key rotation or deactivation and utilized a manual process instead. Over time, Microsoft automated the key rotation process in the enterprise system with the intent for the consumer MSA system to follow and use the same technology, but it had not done so in the consumer MSA system before the intrusion.",
+   "exec": "If Microsoft had not paused manual rotation of keys; if it had completed the migration of its MSA environment to rotate keys automatically; if it had put in place a technical or other control to generate alerts for aging keys, the 2016 MSA key would not have been valid in 2023.",
+   "url": "https://www.cisa.gov/sites/default/files/2025-03/CSRBReviewOfTheSummer2023MEOIntrusion508.pdf"
+  },
+  {
+   "id": "GAO-b3d537d503",
+   "org": "GAO",
+   "year": null,
+   "severity": null,
+   "audience": "board",
+   "audience_label": "Board",
+   "tech": "one test report we reviewed indicated that the system had implemented rolebased access control, but internal system communications were unencrypted. Because the system’s internal communications were unencrypted, a regular user could read an administrator’s username and password and use those credentials to gain greater access to the system and the ability to affect the confidentiality, integrity, or availability of the system.",
+   "exec": "Using relatively simple tools and techniques, testers were able to take control of systems and largely operate undetected, due in part to basic issues such as poor password management and unencrypted communications.",
+   "url": "https://www.gao.gov/assets/gao-19-128.pdf"
+  },
+  {
+   "id": "CSRB-0c3f2f8fbb",
+   "org": "CSRB",
+   "year": "2023",
+   "severity": null,
+   "audience": "board",
+   "audience_label": "Board",
+   "tech": "Some organizations also made use of “out-of-band communications” (any alternative system or technology that allows communication separate from the primary channel),…",
+   "exec": "Highly effective organizations employed mechanisms such as out-of-band communications that allowed incident response professionals to coordinate response efforts without being monitored by the threat actors.",
+   "url": "https://www.cisa.gov/sites/default/files/2023-08/CSRB_Lapsus%24_508c.pdf"
+  },
+  {
+   "id": "2023-06-dfinity-ckBTC-securityreview#s7-f1",
+   "org": "trailofbits",
+   "year": "2023",
+   "severity": "Low",
+   "audience": "executive",
+   "audience_label": "Executive summary",
+   "tech": "KYT canister is centralized on third-party provider\n[…] The KYT canister relies entirely on the third-party provider   Chainalysis   to clear Bitcoin transactions and is tightly integrated with it, creating…",
+   "exec": "The implemented system appears to be well thought out and tested, with the exception of the KYT canister, which has the most significant issues ( TOB-DFBTC-1 , TOB-DFBTC-5 ).",
+   "url": null
+  },
+  {
+   "id": "2025-03-otim-smart-wallet-securityreview#s11-f1",
+   "org": "trailofbits",
+   "year": "2025",
+   "severity": "Medium",
+   "audience": "executive",
+   "audience_label": "Executive summary",
+   "tech": "Lack of NFT callbacks\n[…] In the current implementation, when an EOA upgrades to a smart wallet, it will no longer be able to receive NFTs due to a lack of token callbacks in the current implementation.",
+   "exec": "Specifically, the implementation lacks ERC-721 and ERC-1155 callbacks, which hinders proper NFT handling (TOB-OTIM-1)",
+   "url": null
+  },
+  {
+   "id": "writeup_v2#37",
+   "org": "Zellic",
+   "year": "2023",
+   "severity": null,
+   "audience": "executive",
+   "audience_label": "Executive summary",
+   "tech": "Astar's assets-erc20 precompile implements the standard ERC-20 transfer(address,uint256) and transferFrom(address,address,uint256) functions, whose amount parameter is a 256-bit uint256 per the Ethereum ABI. Internally, though, the precompile reads that argument as Astar's own BalanceOf type, which resolves through several layers of type aliasing (pallet_assets::Config -> astar_primitives::Balance) down to a plain Rust u128 - a 128-bit integer, half the width the calldata argument is supposed to represent.",
+   "exec": "In November 2023, a Zellic security researcher found a vulnerability in Astar - a Polkadot parachain supporting both Wasm and EVM smart contracts - that could have let any attacker steal roughly $400,000 worth of tokens from certain smart contracts deployed on the Astar EVM.",
+   "url": "https://www.zellic.io/blog/finding-a-critical-vulnerability-in-astar"
+  },
+  {
+   "id": "postmortem__lastpass__notice-of-recent-security-incident-dec2022#claim1",
+   "org": "lastpass",
+   "year": "2022",
+   "severity": null,
+   "audience": "customer",
+   "audience_label": "Customer notice",
+   "tech": "This incident did not compromise your Master Password. We never store or have knowledge of your Master Password. We utilize an industry standard Zero Knowledge architecture that ensures LastPass can never know or gain access to our customers’ Master Password.",
+   "exec": "These encrypted fields remain secured with 256-bit AES encryption and can only be decrypted with a unique encryption key derived from each user’s master password using our Zero Knowledge architecture.",
+   "url": null
+  },
+  {
+   "id": "postmortem__dropbox__dropbox-sign-incident-2024#claim1",
+   "org": "dropbox",
+   "year": "2024",
+   "severity": null,
+   "audience": "customer",
+   "audience_label": "Customer notice",
+   "tech": "We reached out to all impacted users who needed to take action. All users who had authentication-related data exposed (i.e., hashed password or API keys) have been notified.",
+   "exec": "Our investigation has concluded, and we found no evidence of unauthorized access to the contents of customers’ accounts (i.e. their documents or agreements), or their payment information.",
+   "url": null
+  },
+  {
+   "id": "postmortem__sourcegraph__security-update-august-2023#claim0",
+   "org": "sourcegraph",
+   "year": "2023",
+   "severity": null,
+   "audience": "customer",
+   "audience_label": "Customer notice",
+   "tech": "As more users discovered the proxy app, they created free Sourcegraph.com accounts, adding their access tokens, and accessing Sourcegraph APIs illegitimately.",
+   "exec": "- Email addresses We have no indication that any of this data was viewed, modified, or copied, but the malicious user could have viewed license key recipients' emails and community user email addresses as they navigated the admin dashboard.",
+   "url": null
+  },
+  {
+   "id": "ftc__drizly#p17",
+   "org": "ftc",
+   "year": "2022",
+   "severity": null,
+   "audience": "regulator",
+   "audience_label": "Regulator",
+   "tech": "Securely store AWS and database login credentials, by including them in GitHub repositories, and failed to use readily available measures to scan these repositories for unsecured credentials (such as usernames, passwords, API keys, secure access tokens, and asymmetric private keys);",
+   "exec": "Drizly's failures, as described in Paragraph 13, led to a breach in or around July 2020 of its production environment, and the exfiltration of the personal information of 2.5 million consumers.",
+   "url": null
+  },
+  {
+   "id": "sec__solarwinds#adj76",
+   "org": "SEC",
+   "year": "2023",
+   "severity": null,
+   "audience": "regulator",
+   "audience_label": "Regulator",
+   "tech": "SolarWinds' Security Statement falsely claimed the Company not only had, but enforced, a strong password policy. Specifically, SolarWinds and Brown stated: We require that authorized users be provisioned with unique account IDs. Our password policy covers all applicable information systems, applications, and databases. Our password best practices enforce the use of complex passwords that include both alpha and numeric characters, which are deployed to protect against unauthorized use of passwords.",
+   "exec": "As discussed below, these statements were materially false and misleading. - a) In Truth, SolarWinds Failed to Enforce or Comply With Its Own Password Policy on Multiple Occasions.",
+   "url": null
+  },
+  {
+   "id": "ftc__chegg#p22",
+   "org": "ftc",
+   "year": "2022",
+   "severity": null,
+   "audience": "regulator",
+   "audience_label": "Regulator",
+   "tech": "The information collected by Chegg, including users' and employees' medical conditions and financial information, together with identifying information such as their names, email addresses, passwords, birthdates, and Social Security numbers, is highly sensitive.",
+   "exec": "The harms described in Paragraphs 16-21 were not reasonably avoidable by users or employees, as users had no way to know about Chegg's information security shortcomings.",
+   "url": null
+  },
+  {
+   "id": "GHSA-jfh8-c2jp-5v3q",
+   "org": "GHSA",
+   "year": "2021",
+   "severity": "Critical",
+   "audience": "developer",
+   "audience_label": "Developer advisory",
+   "tech": "JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.",
+   "exec": "Logging untrusted or user controlled data with a vulnerable version of Log4J may result in Remote Code Execution (RCE) against your application. This includes untrusted data included in logged errors such as exception traces, authentication failures, and other unexpected vectors of user controlled input.",
+   "url": "https://github.com/advisories/GHSA-jfh8-c2jp-5v3q"
+  },
+  {
+   "id": "GHSA-hqxw-f8mx-cpmw",
+   "org": "GHSA",
+   "year": "2023",
+   "severity": "High",
+   "audience": "developer",
+   "audience_label": "Developer advisory",
+   "tech": "The /v2/_catalog endpoint was designed specifically to do registry syncs with search or other API systems. Such an endpoint would create a lot of load on the backend system, due to overfetch required to serve a request in certain implementations.",
+   "exec": "Systems that run distribution built after a specific commit running on memory-restricted environments can suffer from denial of service by a crafted malicious /v2/_catalog API endpoint request.",
+   "url": "https://github.com/advisories/GHSA-hqxw-f8mx-cpmw"
+  },
+  {
+   "id": "GHSA-446m-hmmm-hm8m",
+   "org": "GHSA",
+   "year": "2023",
+   "severity": "Critical",
+   "audience": "developer",
+   "audience_label": "Developer advisory",
+   "tech": "Arbitrary file write in resource_create and package_update actions, using the ResourceUploader object. Also reachable via package_create, package_revise, and package_patch via calls to package_update.\n[…] Remote code execution via unsafe pickle loading, via Beaker's session store when configured to use the file session store backend.",
+   "exec": "A user with permissions to create or edit a dataset can upload a resource with a specially crafted id to write the uploaded file in an arbitrary location. This can be leveraged to Remote Code Execution via Beaker's insecure pickle loading.",
+   "url": "https://github.com/advisories/GHSA-446m-hmmm-hm8m"
+  }
+ ]
+}

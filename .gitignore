@@ -1,0 +1,72 @@
+# secrets
+.env
+.env.*
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+
+# the dataset is PRIVATE for now (owner decision 2026-07-12): the entire data/
+# tree stays out of git until the owner decides to publish. This includes the
+# deliverable (data/dataset/) — publication is a separate, deliberate step.
+data/
+
+# local tooling state (agent skills, Claude config) — machine-local, not project source
+.claude/
+.agents/
+skills-lock.json
+# ...except the project's own commands, hooks and shared settings, which ARE
+# project source. settings.local.json stays out: personal permissions and paths.
+!.claude/
+.claude/*
+!.claude/commands/
+!.claude/hooks/
+!.claude/settings.json
+
+# model weights / heavy artifacts (if they ever land outside data/)
+*.gguf
+*.safetensors
+models/
+
+# trained adapter dir + zips (heavy artifacts, not source)
+legible-lora-v03/
+*.zip
+
+# node / build output (web site + Remotion film project)
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# eval DATA stays out, eval CODE goes in (owner decision 2026-07-23).
+# The bake-off items carry third-party finding text (extracts of the private
+# dataset) and mapping.json would burn the blind human evaluation.
+eval/**/*.jsonl
+eval/**/*.json
+eval/**/*.html
+eval/**/raw/
+
+# generated media (videos, frames, image-gen raws) — heavy and permanent in git
+# history; lives on disk only (owner decision 2026-07-23). Back these up outside git.
+assets/
+
+# firecrawl CLI local cache (scrape/crawl output lands here)
+.firecrawl/
+
+# expert-corpus: scraped third-party material (mixed licenses) stays on disk only.
+# The manifest and the final report ARE versioned.
+research/expert-corpus/**/*.md
+!research/expert-corpus/_final_report.md
+research/expert-corpus/_raw/
+research/_new/
+
+# Baking pairs into public/ IS publishing them, and publication is a separate,
+# deliberate decision the owner has not made. Rebuild with scripts/gen_library_index.py.
+presentation/web/public/library-index.json
+
+# Spanish study guide for the owner; the repo is English only
+study/
