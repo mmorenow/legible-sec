@@ -4,8 +4,8 @@
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3f77ff?style=for-the-badge&logo=apache&logoColor=white)](LICENSE)
 [![Hugging Face](https://img.shields.io/badge/dataset-coming%20soon-FFD21E?style=for-the-badge&logo=huggingface&logoColor=FFD21E)](#corpus)
-[![Website](https://img.shields.io/badge/website-coming%20soon-1f4fd8?style=for-the-badge&logo=googlechrome&logoColor=white)](#reviewer)
-[![Benchmark](https://img.shields.io/badge/benchmark-coming%20soon-e9603f?style=for-the-badge&logo=testcafe&logoColor=white)](#benchmark)
+[![Website](https://img.shields.io/badge/website-coming%20soon-1f4fd8?style=for-the-badge)](#reviewer)
+[![Benchmark](https://img.shields.io/badge/benchmark-coming%20soon-e9603f?style=for-the-badge)](#benchmark)
 
 </div>
 
